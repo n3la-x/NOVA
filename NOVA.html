@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anesa palidhje</title>
+    <style>
+        #header {
+  background-color: #f1f1f1;
+  padding: 50px 10px;
+  color: black;
+  text-align: center;
+  font-size: 90px; 
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: 0.4s;
+}
+    </style>
 </head>
 <body>
-    <h1>gi--nbhh</h1>
+    <h1>Nova</h1>
+    <div id="header">Header</div>
+    <script>
+        // When the user scrolls down 50px from the top of the document, resize the header's font size
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementById("header").style.fontSize = "30px";
+          } else {
+            document.getElementById("header").style.fontSize = "90px";
+          }
+        }
+        </script>
     
 </body>
 </html>
