@@ -5,12 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nail salon</title>
     <style>
-       h1 {
-        color: blueviolet;
-       }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            background-color: #0078d7; 
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: none; 
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
+
+        main {
+            margin-top: 90px; 
+            padding: 20px;
+        }
+
+        header.shadow {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+
+        @media (max-width: 768px) {
+            header {
+                height: 70px; 
+                font-size: 18px;
+            }
+
+            main {
+                margin-top: 70px; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                height: 60px; 
+                font-size: 16px;
+            }
+
+            main {
+                margin-top: 60px; 
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>ORNELAAAA</h1>
+    <header id="fixed-header">Sticky Header with Bottom Shadow</header>
+    <main>
+        <p>Scroll down to see the header stay fixed with a shadow effect.</p>
+      
+        <div style="height: 2000px; background: #f5f5f5;"></div>
+    </main>
+    <script>
+     
+        const header = document.getElementById('fixed-header');
+
+      
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow'); 
+            } else {
+                header.classList.remove('shadow'); 
+            }
+        });
+    </script>
 </body>
 </html>
