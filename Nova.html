@@ -78,7 +78,7 @@
 }
 .top-container {
   background-color: #f1f1f1;
-  padding: 30px;
+  padding: 0% 0% 5% 0%;
   text-align: center;
 }
 
@@ -101,6 +101,33 @@
 .sticky + .content {
   padding-top: 102px;
 }
+/*...................................nav bar top container css.................................*/
+ul {
+  list-style-type: none;
+  top:0;
+  float:right;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+/*...................................END nav bar top container css.................................*/
+
 
     </style>
 </head>
@@ -111,8 +138,13 @@
         <div class="wave"></div>
 
      <div class="top-container">
-        <h1>Scroll Down</h1>
-        <p>Scroll down to see the sticky effect.</p>
+        <img src="logo.png" alt="">
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
       </div>
       
       <div class="header" id="myHeader">
