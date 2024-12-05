@@ -2,6 +2,9 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
 body {
   margin: 0;
@@ -9,7 +12,7 @@ body {
 }
 
 .top-container {
-  background-color: #f1f1f1;
+  background-color: rgb(202, 135, 135);
   padding: 30px;
   text-align: center;
 }
@@ -39,8 +42,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: E1ACAC;
-  padding: 0 0px;
+  background-color: #E1ACAC;
+  padding:  0px;
   border-radius: 20px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
@@ -54,34 +57,45 @@ body {
 }
 
 .navbar a {
-  padding: 12px;
+  padding: 15px;
   color: white;
-  text-decoration: none;
   font-size: 17px;
+  text-decoration: underline;
+  text-decoration-color:white;
+ 
 }
 
 .navbar a:hover {
-  background-color: #000;
+  background-color: rgb(202, 135, 135);
+  box-shadow: 0px 5px 10px 0px rgba(207, 197, 197, 0.5);
+  border-radius: 5px;
+
 }
 
 .active {
   width: 60px;
-  background-color: #04AA6D;
+  border-radius: 20px;
 }
 
 @media screen and (max-width: 500px) {
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
   .navbar-left, .navbar-right {
     flex-direction: column;
     width: 100%;
   }
+  .navbar-left .active {
+    margin-left: 40%;
+    text-align: center;
+    align-items: center;
+  }
   .navbar a {
     width: 100%;
-    text-align: left;
+    text-align: center;
   }
+
 }
 </style>
 </head>
@@ -93,9 +107,9 @@ body {
       <img src="logo.png" class="active" alt="">
     </div>
     <div class="navbar-right">
-      <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
-      <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-      <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+      <a href="#"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+      <a href="#"><i class="bi bi-cloud-arrow-down-fill"></i> Download the app</a>
+      <a href="#"><i class="bi bi-globe"></i>  English</a>
     </div>
   </div>
 </div>
