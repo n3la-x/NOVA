@@ -11,14 +11,14 @@ body {
   margin: 0;
 }
 .top-container {
-  background-color: rgb(202, 135, 135);
+  background-color: #DFD3C3;
   padding: 30px;
   text-align: center;
 }
 
 .header {
   padding: 10px 16px;
-  background:rgb(225, 172, 172);
+  background:#A87676;
   color: #f1f1f1;
 }
 
@@ -41,7 +41,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #E1ACAC;
+  background-color:rgb(240, 235, 227);
+  color: rgb(168, 124, 124);
   padding:  0px;
   border-radius: 20px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
@@ -57,13 +58,14 @@ body {
 
 .navbar a {
   padding: 15px;
-  color: white;
+  color: rgb(168, 124, 124);
   font-size: 17px;
  
 }
 
 .navbar a:hover {
   background-color: rgb(202, 135, 135);
+  color: white;
   box-shadow: 0px 5px 10px 0px rgba(207, 197, 197, 0.5);
   border-radius: 5px;
 
@@ -103,8 +105,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(15px);
+  background:#503c3c61;
+  backdrop-filter: blur(30px);
   display: none;
   justify-content: center;
   align-items: center;
@@ -124,19 +126,37 @@ body {
 
 /* Close button */
 .close-btn {
-  background-color: #f44336;
+  background-color:rgb(168, 124, 124);
   color: white;
+  position: fixed;
+  top: 39%;
   border: none;
-  padding: 10px 15px;
-  top: 0px;
-  margin-right: 50%;
-  font-size: 10px;
+  padding: 5px;
+  right: 890px;
+  font-size: 25px;
   border-radius: 5px;
   cursor: pointer;
 }
+.submit-btn{
+  background-color: rgb(168, 124, 124);
+  color: white;
+  border: none;
+  margin-top: 7%;
+  padding: 10px 55px;
+  top: 0px;
+  float: center;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+  .close-btn:hover {
+  background-color: rgb(225, 172, 172);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.submit-btn:hover{
+  background-color: rgb(225, 172, 172);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 
-.close-btn:hover {
-  background-color: #d8342b;
 }
 
 /* Responsive layout */
@@ -151,8 +171,16 @@ body {
   }
 
   .close-btn {
-    font-size: 12px;
-    padding: 8px 12px;
+    background-color:#CA8787;
+   color: white;
+  position: fixed;
+  top: 39%;
+  border: none;
+  padding: 5px ;
+  right: 375px;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
   }
 }
 </style>
@@ -174,9 +202,9 @@ body {
 <!-- Pop-up form -->
 <div id="popup" class="popup-overlay">
   <div class="popup-content">
-    <h3>Select Your Language</h3>
+    <h3 style="color:#503C3C;">Select Your Language</h3>
     <form>
-      <label for="language">Choose a language:</label>
+      <label for="language" style="color: #493628;">Choose a language:</label>
       <select id="language" name="language">
         <option value="english">English</option>
         <option value="spanish">Spanish</option>
@@ -185,9 +213,9 @@ body {
         <option value="chinese">Chinese</option>
       </select>
       <br><br>
-      <input type="submit" value="Submit">
+      <input type="submit" class="submit-btn" value="Submit">
     </form>
-    <button class="close-btn" onclick="closePopup()">Close</button>
+    <button class="close-btn" onclick="closePopup()"><i class="bi bi-x-square"></i></button>
   </div>
 </div>
 <div class="header" id="myHeader">
