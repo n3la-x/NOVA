@@ -183,6 +183,73 @@ body {
   cursor: pointer;
   }
 }
+/*........................................*/
+
+.container-card {
+  position : relative;
+  width : 1100px;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  flex-warp : warp;
+  padding : 30px;  
+}
+
+.container-card .card {
+  position: relative;
+  max-width : 300px;
+  height : 215px;  
+  background-color : #fff;
+  margin : 30px 10px;
+  padding : 20px 15px;
+  
+  display : flex;
+  flex-direction : column;
+  box-shadow : 0 5px 20px rgba(0,0,0,0.5);
+  transition : 0.3s ease-in-out;
+  border-radius : 15px;
+}
+.container-card .card:hover {
+  height : 320px;    
+}
+
+
+.container-card .card .image-card {
+  position : relative;
+  width : 260px;
+  height : 260px;
+  
+  top : -40%;
+  left: 8px;
+  box-shadow : 0 5px 20px rgba(0,0,0,0.2);
+  z-index : 1;
+}
+
+.container-card .card .image-card img {
+  max-width : 100%;
+  border-radius : 15px;
+}
+
+.container-card .card .content {
+  position : relative;
+  top : -140px;
+  padding : 10px 15px;
+  color : #111;
+  text-align : center;
+  
+  visibility : hidden;
+  opacity : 0;
+  transition : 0.3s ease-in-out;
+    
+}
+
+.container-card .card:hover .content {
+   margin-top : 30px;
+   visibility : visible;
+   opacity : 1;
+   transition-delay: 0.2s;
+  
+}
 </style>
 </head>
 <body>
@@ -223,11 +290,20 @@ body {
 </div>
 
 <div class="content">
-  <h3>On Scroll Sticky Header</h3>
-  <p>The header will stick to the top when you reach its scroll position.</p>
-  <p>Scroll back up to remove the sticky effect.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet...</p>
-</div>
+
+  <body>
+    <div class = "container-card">
+      <div class = "card">
+        <div class = "image-card">
+          <img href = "#" src = "logo.png">
+        </div>
+        <div class = content>
+          <h3>This is content</h3>
+          <p>DIn publishing and graphic design,           Lorem ipsum is a placeholder text               commonly used to demonstrate the visual         form of a document or a typeface without         relying on meaningful content.</p>
+        </div>
+      </div>    
+    </div>
+  </body>
 <div class="content">
   <h3>On Scroll Sticky Header</h3>
   <p>The header will stick to the top when you reach its scroll position.</p>
