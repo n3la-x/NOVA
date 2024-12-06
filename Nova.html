@@ -26,9 +26,12 @@ body {
 }
 
 .header {
-  padding: 10px 16px;
+  padding: 10px 10px;
   background:rgb(202, 135, 135);
   color: #f1f1f1;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
 }
 
 .content {
@@ -198,6 +201,10 @@ body {
   gap: 20px;
   padding: 20px;
 }
+.container-header{
+  justify-content: space-between;
+  align-items: center;
+}
 
 .card {
   width: 300px;
@@ -328,55 +335,35 @@ body {
   margin-left: 30px;
 }
 
-.openbtn {
-  position: absolute;
-  top: 150px;
-  right:20px;
-  font-size: 20px;
-  cursor: pointer;
-  background-color: rgb(229, 225, 218);
-  border-radius: 3px;
- color: rgb(168, 124, 124);
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
-  background-color:#82828220;
-  color: rgb(229, 225, 218);
-  box-shadow: 0px 4px 8px  rgb(229, 225, 218);
-}
 
 
 
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
-  .openbtn {
-  position: absolute;
-  top: 90px;
-  right:10px;
-  font-size: 15px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 5px 10px;
-  border: none;
+  
 }
-}
-@media screen and (max-width: 500px) {
-  .openbtn {
-  position: absolute;
-  top: 306px;
-  right:10px;
-  font-size: 15px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-}
-}
+.openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: rgb(229, 225, 218);
+      color: rgb(168, 124, 124);
+      padding: 10px 15px;
+      margin: 0 20px;
+      border: none;
+      border-radius: 3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .openbtn:hover {
+      background-color: #82828220;
+      color: rgb(229, 225, 218);
+      box-shadow: 0px 4px 8px rgb(229, 225, 218);
+    }
+
   /*--------------BUTONAT TE KATEGORIT-----------------*/   
   .button-ctg {
   --c:   rgb(219, 181, 181); /* NGJYRA E BUTONIT*/
@@ -416,7 +403,7 @@ body {
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 
 :root {
-  --glow-color:#F3D0D7;
+  --glow-color:#89A8B2;
 }
 .container-glow-button{
   display: flex;
@@ -618,7 +605,46 @@ body {
     font-size: 1em;
   }
 }
+/*......................COUNTER ........................................*/
+.container-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stacks items vertically */
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 90%; /* Responsive width */
+  max-width: 400px; /* Limit maximum width */
+  text-align: center;
+}
 
+/* Counter styling */
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between text and number */
+  font-size: 2rem;
+  font-weight: bold;
+  flex-wrap: wrap; /* Wrap text on smaller screens */
+}
+
+@media (max-width: 600px) {
+  .counter {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+      .openbtn {
+        font-size: 15px;
+        padding: 8px 10px;
+      }
+      .flex-container {
+        justify-content: center;
+      }
+    }
 </style>
 </head>
 <body>
@@ -664,8 +690,8 @@ body {
   </div>
 </div>
 <div class="header" id="myHeader">
-  <h2>Nova</h2>
-    <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>  
+    <h2 style="margin-left: 20px;">Nova</h2>
+    <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 
 <div class="content">
@@ -707,13 +733,33 @@ body {
       </div>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
   <div class="container-glow-button">
-  <button class='glowing-btn'><span class='glowing-txt'>C<span class='faulty-letter'>L</span>ICK</span></button>
+  <button class='glowing-btn'><span class='glowing-txt'>speci<span class='faulty-letter'>al </span>offers</span></button>
 </div>
 </div>  
+<div class="container-counter">
+  <div class="counter">
+    <span>Appointments booked:</span>
+    <span id="counter">0</span>
+  </div>
+</div>
 
 
 <script>
+  /*..............COUNTER...........................*/
+  const counterElement = document.getElementById('counter');
+let count = 0;
+
+function incrementCounter() {
+  counterElement.textContent = count;
+  count = (count + 1) % 201; // Reset to 0 after 200
+}
+
+// Increment the counter every 100 milliseconds
+setInterval(incrementCounter, 100);
 /*---------sidebar---------------*/
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
