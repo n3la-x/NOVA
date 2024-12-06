@@ -194,13 +194,6 @@ body {
 }
 /*........................................*/
 
-/* General styles */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-}
-
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -276,7 +269,7 @@ body {
 
 .card .details .center h1 span {
   font-size: 14px;
-  color: #262626;
+  color:rgb(80, 60, 60);
 }
 
 /* Responsive Design */
@@ -290,11 +283,140 @@ body {
     margin: 10px auto;
   }
 }
+/*----------------------hr line----------------------------*/
+       h4 {
+            display: flex;
+            flex-direction: row;
+            color: #E1ACAC;
+            padding: 3px 5px 3px 5px;
+        }
+        
+        h4:before,
+        h4:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid rgb(202, 135, 135);
+            margin: auto;
+        }
+ /*-------------------side bar---------------*/
+  .sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: rgb(219, 181, 181);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
 
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 30px;
+}
+
+.openbtn {
+  position: absolute;
+  top: 150px;
+  right:20px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: rgb(229, 225, 218);
+  border-radius: 3px;
+ color: rgb(168, 124, 124);
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color:#818181;
+  color: white;
+}
+
+
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+  .openbtn {
+  position: absolute;
+  top: 90px;
+  right:10px;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+}
+}
+@media screen and (max-width: 500px) {
+  .openbtn {
+  position: absolute;
+  top: 306px;
+  right:10px;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+}
+}
+  /*--------------BUTONAT TE KATEGORIT-----------------*/   
+  .button-ctg {
+  --c:  #229091; /* NGJYRA E BUTONIT*/
+  
+  box-shadow: 0 0 0 .1em inset var(--c); 
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: 
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+}
+.button-ctg:hover {
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
+}
+.button-ctg:active {
+  box-shadow: 0 0 9e9q inset #0009; 
+  background-color: var(--c);
+  color: #818181;
+}
+
+.button-ctg {
+  font-family: system-ui, sans-serif;
+  font-size: 3.5rem;
+  cursor: pointer;
+  padding: .1em .6em;
+  font-weight: bold;  
+  border: none;
+}   
 </style>
 </head>
 <body>
-
 <div class="top-container">
   <div class="navbar">
     <div class="navbar-left">
@@ -307,6 +429,16 @@ body {
     </div>
   </div>
 </div>
+<!-----------navbar sidebar------------>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
+  <a href="#"><i class="bi bi-person-lines-fill"></i>About us</a>
+  <a href="#"><i class="bi bi-telephone"></i>Contact us</a>
+  <a href="#"><i class="bi bi-stars"></i>Special offers</a>
+  <a href="#"><i class="bi bi-hourglass-split"></i>Last min appoitment</a>
+</div>
+
+
 <!-- Pop-up form -->
 <div id="popup" class="popup-overlay">
   <div class="popup-content">
@@ -328,11 +460,11 @@ body {
 </div>
 <div class="header" id="myHeader">
   <h2>Nova</h2>
+    <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>  
 </div>
 
 <div class="content">
-
-    
+  <h4> Our Services </h4>
   <div class="card-container">
     <div class="card">
       <div class="image">
@@ -341,6 +473,7 @@ body {
       <div class="details">
         <div class="center">
           <h1>Nail Studios<br><span>Visit the best nail studios!</span></h1>
+          <button class="button-ctg">Button</button>
         </div>
       </div>
     </div>
@@ -352,6 +485,7 @@ body {
       <div class="details">
         <div class="center">
           <h1>Hair Salons<br><span>Visit the best hair salons!</span></h1>
+          <button class="button-ctg">Button</button>
         </div>
       </div>
     </div>
@@ -362,7 +496,8 @@ body {
       </div>
       <div class="details">
         <div class="center">
-        <h1> Skin care clinic</h1><br><span>Visit the best skin care clinics!</span></h1>
+        <h1> Skin care clinic<br><span>Visit the best skin care clinics!</span></h1>
+        <button class="button-ctg">Button</button>
         </div>
       </div>
     </div>
@@ -370,40 +505,20 @@ body {
 
       
 
-<div class="content">
-  <h3>On Scroll Sticky Header</h3>
-  <p>The header will stick to the top when you reach its scroll position.</p>
-  <p>Scroll back up to remove the sticky effect.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet...</p>
-</div><div class="content">
-  <h3>On Scroll Sticky Header</h3>
-  <p>The header will stick to the top when you reach its scroll position.</p>
-  <p>Scroll back up to remove the sticky effect.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet...</p>
-</div><div class="content">
-  <h3>On Scroll Sticky Header</h3>
-  <p>The header will stick to the top when you reach its scroll position.</p>
-  <p>Scroll back up to remove the sticky effect.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet...</p>
-</div><div class="content">
-  <h3>On Scroll Sticky Header</h3>
-  <p>The header will stick to the top when you reach its scroll position.</p>
-  <p>Scroll back up to remove the sticky effect.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet...</p>
-</div><div class="content">
-  <h3>On Scroll Sticky Header</h3>
-  <p>The header will stick to the top when you reach its scroll position.</p>
-  <p>Scroll back up to remove the sticky effect.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet...</p>
-</div><div class="content">
-  <h3>On Scroll Sticky Header</h3>
-  <p>The header will stick to the top when you reach its scroll position.</p>
-  <p>Scroll back up to remove the sticky effect.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet...</p>
-</div>
 
 <script>
-  /* JavaScript to handle popup visibility */
+/*---------sidebar---------------*/
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+
+  /* ------- popup ---------------*/
 function openPopup() {
   document.getElementById('popup').style.display = 'flex';
 }
