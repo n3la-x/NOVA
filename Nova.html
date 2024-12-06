@@ -267,7 +267,7 @@ body {
 }
 
 .card .details .center h1 span {
-  font-size: 14px;
+  font-size: 12px;
   color:rgb(80, 60, 60);
 }
 
@@ -346,8 +346,9 @@ body {
 }
 
 .openbtn:hover {
-  background-color:#818181;
-  color: white;
+  background-color:#82828220;
+  color: rgb(229, 225, 218);
+  box-shadow: 0px 4px 8px  rgb(229, 225, 218);
 }
 
 
@@ -382,7 +383,7 @@ body {
 }
   /*--------------BUTONAT TE KATEGORIT-----------------*/   
   .button-ctg {
-  --c:  #229091; /* NGJYRA E BUTONIT*/
+  --c:   rgb(219, 181, 181); /* NGJYRA E BUTONIT*/
   
   box-shadow: 0 0 0 .1em inset var(--c); 
   --_g: linear-gradient(var(--c) 0 0) no-repeat;
@@ -394,10 +395,12 @@ body {
   background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
   outline-offset: .1em;
   transition: background-size .4s, background-position 0s .4s;
+  color: #818181 ;
 }
 .button-ctg:hover {
   --_p: 100%;
   transition: background-position .4s, background-size 0s;
+  color:white ;
 }
 .button-ctg:active {
   box-shadow: 0 0 9e9q inset #0009; 
@@ -407,10 +410,10 @@ body {
 
 .button-ctg {
   font-family: system-ui, sans-serif;
-  font-size: 3.5rem;
+  font-size: 15px;
   cursor: pointer;
-  padding: .1em .6em;
-  font-weight: bold;  
+  padding: 10px 15px;
+  margin: 20px 10px; 
   border: none;
 }   
 </style>
@@ -422,7 +425,7 @@ body {
       <img src="logo.png" class="active" alt="">
     </div>
     <div class="navbar-right">
-      <a href="#login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+      <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
       <a href="#"><i class="bi bi-cloud-arrow-down-fill"></i> Download the app</a>
       <a href="#" onclick="openPopup()"><i class="bi bi-globe" ></i> Select Language</a>
     </div>
@@ -472,7 +475,7 @@ body {
       <div class="details">
         <div class="center">
           <h1>Nail Studios<br><span>Visit the best nail studios!</span></h1>
-          <button class="button-ctg">Button</button>
+          <button class="button-ctg">Book now</button>
         </div>
       </div>
     </div>
@@ -484,7 +487,7 @@ body {
       <div class="details">
         <div class="center">
           <h1>Hair Salons<br><span>Visit the best hair salons!</span></h1>
-          <button class="button-ctg">Button</button>
+          <button class="button-ctg">Book now</button>
         </div>
       </div>
     </div>
@@ -496,7 +499,7 @@ body {
       <div class="details">
         <div class="center">
         <h1> Skin care clinic<br><span>Visit the best skin care clinics!</span></h1>
-        <button class="button-ctg">Button</button>
+        <button class="button-ctg">Book now</button>
         </div>
       </div>
     </div>
