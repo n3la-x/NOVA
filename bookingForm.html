@@ -245,9 +245,6 @@ body {
   margin-left: 30px;
 }
 
-
-
-
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
@@ -464,7 +461,7 @@ footer {
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
   <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
   <a href="#"><i class="bi bi-telephone"></i>Contact us</a>
-  <a href="#"><i class="bi bi-stars"></i>Special offers</a>
+  <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
   <a href="#"><i class="bi bi-hourglass-split"></i>Last min appoitment</a>
 </div>
 
@@ -492,12 +489,12 @@ footer {
     <h2><a href="Nova.html">Nova</a></h2>
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
-<!--........................CONTENT..........................-->
+<!--........................CONTENT BOOKING..........................-->
 <div class="booking-container">
 <div class="booking-form">
     <h2 style=" font-family: 'Tangerine'; font-size: 40px;">Book wellnes services !</h2>
     <form id="bookingForm">
-      <!-- Select Service -->
+      <!-- ---------Select Service----- -->
       <label for="service">Choose a Service:</label>
       <select id="service" name="service" required>
         <option value="" disabled selected>Select Service</option>
@@ -608,8 +605,6 @@ document.addEventListener("DOMContentLoaded", () => {
     facial: ["Fresh Face Clinic", "Glow Skin Spa", "Revive Facial Center"],
     hair: ["Elite Hair Salon", "Style Studio", "Chic Hair Lounge"],
   };
-
-  // Show specific options based on selected service
   serviceDropdown.addEventListener("change", () => {
     const selectedService = serviceDropdown.value;
     if (options[selectedService]) {
@@ -622,7 +617,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Handle form submission
   bookingForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -637,12 +631,12 @@ document.addEventListener("DOMContentLoaded", () => {
       time: formData.get("time"),
     };
 
-    // Show confirmation
+  
     alert(
       `Booking Confirmed!\nService: ${data.service}\nStudio/Clinic/Salon: ${data.specificService}\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nDate: ${data.date}\nTime: ${data.time}`
     );
 
-    // Optionally reset form
+
     bookingForm.reset();
     specificOptionsDiv.classList.add("hidden");
   });
