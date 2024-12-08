@@ -24,11 +24,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=DM+Serif+Text:ital@0;1&family=Pangolin&family=Parkinsans:wght@300..800&family=Poiret+One&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Tangerine:wght@400;700&display=swap" rel="stylesheet"><!--font link end-->
     <title>Log in</title>
     <style>
-    body{
-        
-        background-color: #e5e1dab7;
-      
-      }
+body {
+  font-family:'Poiret One';
+  margin: 0;
+  background-color: #e5e1dab7;
+
+}
       .container{
         align-items: center;
       max-width: 400px;
@@ -49,6 +50,14 @@
   align-items: center;
   justify-content: space-between;
   display: flex;
+}
+.header h2 a{
+  margin-left: 20px;
+  color: #f1f1f1!important;
+}
+
+.header h2 a:hover{
+  color: rgb(80, 60, 60)#818181;
 }
 @media (max-width: 768px) {
 
@@ -411,8 +420,15 @@ footer {
         margin-bottom: 25px;
       }
       
-      button {
-        background-color:#e5e1dab7;
+    
+      
+      button:hover {
+        opacity:1;
+      }
+      
+    
+     .loginbtn {
+      background-color:#e5e1dab7;
         border-style: groove;
         border-color: #E1ACAC;
         color: rgb(168, 124, 124);
@@ -422,16 +438,6 @@ footer {
         display: center;
         width: 50%;
         opacity: 0.9;
-      
-      }
-    
-      
-      button:hover {
-        opacity:1;
-      }
-      
-    
-     .loginbtn {
         float: center;
         width: 55%;
         border-radius: 5%;
@@ -465,7 +471,7 @@ footer {
   <div class="top-container">
     <div class="navbar">
       <div class="navbar-left">
-        <h2 style=" font-family: cursive;">Book wellnes services !</h2>
+        <h2 style=" font-family: 'Tangerine'; font-size: 40px;">Book wellnes services !</h2>
       </div>
       <div class="navbar-right">
         <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
@@ -477,9 +483,9 @@ footer {
   <!-----------navbar sidebar------------>
   <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
-    <a href="#"><i class="bi bi-person-lines-fill"></i>About us</a>
+    <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
     <a href="#"><i class="bi bi-telephone"></i>Contact us</a>
-    <a href="#"><i class="bi bi-stars"></i>Special offers</a>
+    <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
     <a href="#"><i class="bi bi-hourglass-split"></i>Last min appoitment</a>
   </div>
   
@@ -504,10 +510,10 @@ footer {
     </div>
   </div>
   <div class="header" id="myHeader">
-      <h2 style="margin-left: 20px;">Nova</h2>
+      <h2><a href="Nova.html">Nova</a></h2>
       <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
   </div>
-  <br>
+  <!--....................................Login FORMA................................-->
     <h2 style="color: rgb(168, 124, 124);margin: 5px 0 2px 655px;padding: 10px;" >Login Form</h2>
 
 <form action="/action_page.php" method="post">
@@ -531,11 +537,10 @@ footer {
   
 
     <span class="psw"><a href="#"> Forgot password?</a></span>
-    <span class="haveacc"><a href="#">Don't have an account?</a></span>
+    <span class="haveacc"><a href="signup.html">Don't have an account?</a></span>
   </div>
 </form>
-
-
+<!--..................................F O O T E R............................-->
 <div class="footer-container">
   <footer>
     <div class="footer-section">
@@ -595,15 +600,8 @@ footer {
 </div>
 <script>
     
- function myFunction() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-
+  /*---------------------------------F O O T E R------------------------------------------------*/
+  // Modal functionality
 const leaveReviewBtn = document.getElementById('leave-review-btn');
 const modal = document.getElementById('review-modal');
 const closeModal = document.querySelector('.close');
