@@ -18,13 +18,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 <!--font link-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Pangolin&family=Parkinsans:wght@300..800&family=Poiret+One&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-<!--font link end-->
-    <title> Nova</title>
+<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=DM+Serif+Text:ital@0;1&family=Pangolin&family=Parkinsans:wght@300..800&family=Poiret+One&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Tangerine:wght@400;700&display=swap" rel="stylesheet"><!--font link end-->
+   <title> Nova</title>
 <style>
   
 body {
@@ -57,6 +55,8 @@ body {
 
 .content {
   padding-top: 60px;
+  display: flex;
+  justify-content: center;
 }
 
 .sticky {
@@ -182,106 +182,13 @@ body {
   }
 
 }
-/*..................CARDS CATEGORY......................*/
 
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-  margin: 70px 0px 0px 0px;
-}
-.container-header{
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card {
-  width: 300px;
-  height: 300px;
-  background: rgb(241, 240, 232);
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.card .image {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.card .image img {
-  width: 100%;
-  transition: 0.5s;
-}
-
-.card:hover .image img {
-  opacity: 0.5;
-  transform: translateX(30%);
-}
-
-.card .details {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: rgb(219, 181, 181);
-  transition: 0.5s;
-  transform-origin: left;
-  transform: perspective(2000px) rotateY(-90deg);
-}
-
-.card:hover .details {
-  transform: perspective(2000px) rotateY(0deg);
-}
-
-.card .details .center {
-  padding: 20px;
-  text-align: center;
-  background: #fff;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-}
-
-.card .details .center h1 {
-  padding: 0;
-  color: rgb(126, 99, 99);
-  line-height: 25px;
-  font-size: 25px;
-}
-
-.card .details .center h1 span {
-  font-size: 15px;
-  color:rgb(80, 60, 60);
-}
-
-@media screen and (max-width: 768px) {
-  .card-container {
-    flex-direction: column;
-  }
-
-  .card {
-    width: 90%;
-    margin: 10px auto;
-  }
-}
 /*----------------------hr line----------------------------*/
-       h4 {
-            display: flex;
+        h4{
+          display: flex;
             flex-direction: row;
             color:#E1ACAC;
-            margin: 20px 5px;
+            margin: 100px 0 0px 0;
             font-family:'Charm';
         }
         
@@ -359,177 +266,7 @@ body {
       box-shadow: 0px 4px 8px rgb(229, 225, 218);
     }
 
-  /*--------------BUTONAT TE KATEGORIT-----------------*/   
-  .button-ctg {
-  --c:   rgb(219, 181, 181); /* NGJYRA E BUTONIT*/
-  
-  box-shadow: 0 0 0 .1em inset var(--c); 
-  --_g: linear-gradient(var(--c) 0 0) no-repeat;
-  background: 
-    var(--_g) calc(var(--_p,0%) - 100%) 0%,
-    var(--_g) calc(200% - var(--_p,0%)) 0%,
-    var(--_g) calc(var(--_p,0%) - 100%) 100%,
-    var(--_g) calc(200% - var(--_p,0%)) 100%;
-  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-  outline-offset: .1em;
-  transition: background-size .4s, background-position 0s .4s;
-  color: #818181 ;
-}
-.button-ctg:hover {
-  --_p: 100%;
-  transition: background-position .4s, background-size 0s;
-  color:white ;
-  font-style: italic;
-}
-.button-ctg:active {
-  box-shadow: 0 0 9e9q inset #0009; 
-  background-color: var(--c);
-  color: #818181;
-}
-
-.button-ctg {
-  font-family: system-ui, sans-serif;
-  font-size: 15px;
-  cursor: pointer;
-  padding: 10px 15px;
-  margin: 20px 0px; 
-  border: none;
-}   
-
-
-/*......................COUNTER ........................................*/
-.counter-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size:25px;
-  margin: 0px 0px 80px 0;
-}
-
-.counter {
-  border: 1px solid rgb(202, 135, 135);
-  color: rgb(202, 135, 135);
-  padding: 10px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 10px #b96f6fd6;
-  width: 90%; 
-  max-width: 400px; 
-  text-align: center;
-  gap: 10px;
-}
-#counter{
-  font-size: 30px;
-  margin: 10px;
-  font-weight: bold;
-}
-@media (max-width: 600px) {
-  .counter {
-    font-size: 1.5rem;
-  }
-}
-@media screen and (max-width: 500px) {
-      .openbtn {
-        font-size: 15px;
-        padding: 8px 10px;
-      }
-      .flex-container {
-        justify-content: center;
-      }
-      .counter{
-        padding: 0;
-      }
-    }
-    /*-----------------------testemonial carousel---------------------------*/
-  .carousel-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      max-width: 80%;
-      margin-left: 10%;
-}
-
-.carousel-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
-}
-
-.carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  overflow: hidden;
-  cursor: grab;
-  user-select: none;
-}
-
-.card-review {
-  flex: 0 0 300px;
-  font-family: 'Roboto Flex';
-  height: 300px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 20px;
-  margin-right: 5%;
-  margin-left: 10%;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.card-review:hover {
-  transform: scale(1.05);
-}
-
-.card-review p {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.card-review span {
-  font-weight: bold;
-  color: #333;
-}
-
-
-.profile-reviews {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  object-fit: cover;
-}
-
-.stars {
-  color: #FFD700;
-  font-size: 18px;
-  margin: 5px 0;
-}
-
-.name {
-  font-weight: bold;
-  color: #333;
-  margin-top: 5px;
-}
-
-@media (max-width: 768px) {
-  .carousel-container h2 {
-    font-size: 20px;
-  }
-
-  .card-review {
-    flex: 0 0 250px;
-  }
-
-  .profile-reviews {
-    width: 70px;
-    height: 70px;
-  }
-}
-/*---------------------------------------------------F O O T E R-------------------------------------*/
+  /*---------------------------------------------------F O O T E R-------------------------------------*/
 .footer-container {
   background-color: rgb(168, 124, 124);
   color: white;
@@ -648,13 +385,58 @@ footer {
   color:  rgb(168, 124, 124);
   font-style: italic;
 }
+/*--------------------FORM BOOKING------------------*/
+.booking-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.booking-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.booking-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.booking-form input, .booking-form select, .booking-form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.booking-form button {
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+.booking-form button:hover {
+  background-color: #0056b3;
+}
+
+.hidden {
+  display: none;
+}
+
 </style>
 </head>
 <body>
 <div class="top-container">
   <div class="navbar">
     <div class="navbar-left">
-      <h2 style="  font-family: 'Tangerine', serif; font-size: 40px;">Book wellnes services !</h2>
+      <h2 style=" font-family: cursive;">Book wellnes services !</h2>
     </div>
     <div class="navbar-right">
       <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
@@ -666,10 +448,10 @@ footer {
 <!-----------navbar sidebar------------>
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
-  <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
+  <a href="#"><i class="bi bi-person-lines-fill"></i>About us</a>
   <a href="#"><i class="bi bi-telephone"></i>Contact us</a>
-  <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
-  <a href="#"><i class="bi bi-hourglass-split"></i>Last minute appoitment</a>
+  <a href="#"><i class="bi bi-stars"></i>Special offers</a>
+  <a href="#"><i class="bi bi-hourglass-split"></i>Last min appoitment</a>
 </div>
 
 
@@ -696,117 +478,48 @@ footer {
     <h2 style="margin-left: 20px;">Nova</h2>
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
+<!--........................CONTENT..........................-->
+<div class="booking-form">
+    <h2>Book a Service</h2>
+    <form id="bookingForm">
+      <!-- Select Service -->
+      <label for="service">Choose a Service:</label>
+      <select id="service" name="service" required>
+        <option value="" disabled selected>Select Service</option>
+        <option value="nails">Nails</option>
+        <option value="facial">Facial Treatment</option>
+        <option value="hair">Hair Salon</option>
+      </select>
 
-<div class="content">
+      <!-- Service-Specific Options -->
+      <div id="specificOptions" class="hidden">
+        <label for="specificService">Choose a Studio/Clinic/Salon:</label>
+        <select id="specificService" name="specificService" required>
+          <!-- Options will be dynamically loaded -->
+        </select>
+      </div>
 
-  <h4> Our Services </h4>
+      <!-- Personal Information -->
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-  <div class="card-container">
-    <div class="card">
-      <div class="image">
-        <img src="nails.png" alt="Nail Studio">
-      </div>
-      <div class="details">
-        <div class="center">
-          <h1>Nail Studios<br><span>Visit the best nail studios!</span></h1>
-          <button class="button-ctg">Book now</button>
-        </div>
-      </div>
-    </div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-    <div class="card">
-      <div class="image">
-        <img src="hair.png" alt="Nail Studio">
-      </div>
-      <div class="details">
-        <div class="center">
-          <h1>Hair Salons<br><span>Visit the best hair salons!</span></h1>
-          <button class="button-ctg">Book now</button>
-        </div>
-      </div>
-    </div>
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Your Phone" required>
 
-    <div class="card">
-      <div class="image">
-        <img src="facial.png" alt="Nail Studio">
-      </div>
-      <div class="details">
-        <div class="center">
-        <h1> Skin care clinic<br><span>Visit the best skin care clinics!</span></h1>
-        <button class="button-ctg">Book now</button>
-        </div>
-      </div>
-    </div>
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Time:</label>
+      <input type="time" id="time" name="time" required>
+
+      <!-- Submit Button -->
+      <button type="submit">Book Now</button>
+    </form>
   </div>
-  <br>
-  <br>
-  <br>
-  <div class="counter-container">
-    <div class="counter">Appointments booked: <span id="counter" >0</span></div>
-  </div>
-  <!----------------------------TESTEMONIALS CAROUSEL------------------------->
-  <h4>Reviews</h4>
-  <div class="carousel-container">
-    <div class="carousel">
-      <div class="card-review">
-        <img src="profile1.jpg" alt="John Smith" class="profile-reviews">
-        <p>"Booking my salon appointments has never been easier! The platform is user-friendly, and I love how I can see all available slots instantly. Plus, the reminders ensure I never miss an appointment. Highly recommended!"</p>
-        <div class="stars">
-          <span>★★★★★</span>
-        </div>
-        <span class="name">— Sophia R.</span>
-      </div> 
-         <div class="card-review">
-        <img src="profile2.jpg" alt="John Smith" class="profile-reviews">
-        <p>"Fresha is a game-changer for beauty and wellness bookings. I found my favorite spa and discovered new ones I wouldn t have known about otherwise. The reviews and detailed profiles make choosing so simple."</p>
-        <div class="stars">
-          <span>★★★★★</span>
-        </div>
-        <span class="name">— Mark L.</span>
-      </div>    <div class="card-review">
-        <img src="profile3.jpg" alt="John Smith" class="profile-reviews">
-        <p>"From haircuts to massages, Fresha connects me with the best professionals in town. "</p>
-        <div class="stars">
-          <span>★★★★★</span>
-        </div>
-        <span class="name">— James P.</span>
-      </div>
-      <div class="card-review">
-        <img src="profile4.jpg" alt="John Smith" class="profile-reviews">
-        <p>"Booked a surprise spa day for my wife through Fresha, and now she thinks Im a genius. Easiest way to earn husband points—10/10 would recommend!"</p>
-        <div class="stars">
-          <span>★★★★★</span>
-        </div>
-        <span class="name">- Will Smith</span>
-      </div>
-      <div class="card-review">
-        <img src="profile5.jpg" alt="John Smith" class="profile-reviews">
-        <p>"I ve tried other apps, but Fresha stands out. No hidden fees, straightforward navigation.A must-have for self-care enthusiasts!"</p>
-        <div class="stars">
-          <span>★★★★★</span>
-        </div>
-        <span class="name">- Olivia W.</span>
-      </div>
-      <div class="card-review">
-        <img src="profile6.jpg" alt="John Smith" class="profile-reviews">
-        <p>"Excellent customer service and a fantastic product. 5 stars!"</p>
-        <div class="stars">
-          <span>★★★★★</span>
-        </div>
-        <span class="name">- John Smith</span>
-      </div>
-      <div class="card-review">
-        <img src="profile1.jpg" alt="John Smith" class="profile-reviews">
-        <p>"Booking my salon appointments has never been easier! The platform is user-friendly. Plus, the reminders ensure I never miss an appointment."</p>
-        <div class="stars">
-          <span>★★★★★</span>
-        </div>
-        <span class="name">— Mathew R.</span>
-      </div> 
-    </div>
-  </div>
-  
-</div>  
+
   <!----------------------------------------F O O T E R------------------------------------------>
 <div class="footer-container">
   <footer>
@@ -868,6 +581,58 @@ footer {
 
 
 <script>
+/*.............................BOOKING FORM...................*/
+document.addEventListener("DOMContentLoaded", () => {
+  const serviceDropdown = document.getElementById("service");
+  const specificOptionsDiv = document.getElementById("specificOptions");
+  const specificServiceDropdown = document.getElementById("specificService");
+  const bookingForm = document.getElementById("bookingForm");
+
+  const options = {
+    nails: ["Pretty Nails Studio", "Glamour Nails", "Sparkle Nail Bar"],
+    facial: ["Fresh Face Clinic", "Glow Skin Spa", "Revive Facial Center"],
+    hair: ["Elite Hair Salon", "Style Studio", "Chic Hair Lounge"],
+  };
+
+  // Show specific options based on selected service
+  serviceDropdown.addEventListener("change", () => {
+    const selectedService = serviceDropdown.value;
+    if (options[selectedService]) {
+      specificOptionsDiv.classList.remove("hidden");
+      specificServiceDropdown.innerHTML = options[selectedService]
+        .map((option) => `<option value="${option}">${option}</option>`)
+        .join("");
+    } else {
+      specificOptionsDiv.classList.add("hidden");
+    }
+  });
+
+  // Handle form submission
+  bookingForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(bookingForm);
+    const data = {
+      service: formData.get("service"),
+      specificService: formData.get("specificService"),
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      date: formData.get("date"),
+      time: formData.get("time"),
+    };
+
+    // Show confirmation
+    alert(
+      `Booking Confirmed!\nService: ${data.service}\nStudio/Clinic/Salon: ${data.specificService}\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nDate: ${data.date}\nTime: ${data.time}`
+    );
+
+    // Optionally reset form
+    bookingForm.reset();
+    specificOptionsDiv.classList.add("hidden");
+  });
+});
+
   /*---------------------------------F O O T E R------------------------------------------------*/
   // Modal functionality
 const leaveReviewBtn = document.getElementById('leave-review-btn');
@@ -897,62 +662,7 @@ reviewForm.addEventListener('submit', (e) => {
   reviewForm.reset();
 });
 
-  /*--------------TESTEMONIALS CAROUSEL----------------------*/
-  const carousel = document.querySelector('.carousel');
-let isDragging = false;
-let startX;
-let scrollLeft;
-
-carousel.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  startX = e.pageX - carousel.offsetLeft;
-  scrollLeft = carousel.scrollLeft;
-  carousel.style.cursor = 'grabbing';
-});
-
-carousel.addEventListener('mouseleave', () => {
-  isDragging = false;
-  carousel.style.cursor = 'grab';
-});
-
-carousel.addEventListener('mouseup', () => {
-  isDragging = false;
-  carousel.style.cursor = 'grab';
-});
-
-carousel.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-  e.preventDefault();
-  const x = e.pageX - carousel.offsetLeft;
-  const walk = (x - startX) * 2; 
-  carousel.scrollLeft = scrollLeft - walk;
-});
-
-carousel.addEventListener('touchstart', (e) => {
-  isDragging = true;
-  startX = e.touches[0].pageX - carousel.offsetLeft;
-  scrollLeft = carousel.scrollLeft;
-});
-
-carousel.addEventListener('touchend', () => {
-  isDragging = false;
-});
-
-carousel.addEventListener('touchmove', (e) => {
-  if (!isDragging) return;
-  const x = e.touches[0].pageX - carousel.offsetLeft;
-  const walk = (x - startX) * 2; // Adjust scroll speed
-  carousel.scrollLeft = scrollLeft - walk;
-});
-
-  /*..............COUNTER...........................*/
-  const counterElement = document.getElementById('counter');
-let count = 0;
-function incrementCounter() {
-  counterElement.textContent = count;
-  count = (count + 1) % 501; 
-}
-setInterval(incrementCounter, 500);
+  
 /*---------sidebar---------------*/
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
