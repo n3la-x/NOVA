@@ -46,6 +46,14 @@ body {
   justify-content: space-between;
   display: flex;
 }
+.header h2 a{
+  margin-left: 20px;
+  color: #f1f1f1!important;
+}
+
+.header h2 a:hover{
+  color: rgb(80, 60, 60)#818181;
+}
 @media (max-width: 768px) {
 
   .content {
@@ -421,7 +429,7 @@ footer {
 
 .left-panel a {
   text-decoration: none;
-  color: #003580;
+  color: rgb(126, 99, 99);
   font-weight: bold;
 }
 
@@ -516,7 +524,7 @@ font-family: 'Roboto Flex';
 <div class="top-container">
   <div class="navbar">
     <div class="navbar-left">
-      <h2 style=" font-family: cursive;">Book wellnes services !</h2>
+      <h2 style=" font-family: 'Tangerine'; font-size: 40px;">Book wellnes services !</h2>
     </div>
     <div class="navbar-right">
       <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
@@ -528,9 +536,9 @@ font-family: 'Roboto Flex';
 <!-----------navbar sidebar------------>
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
-  <a href="#"><i class="bi bi-person-lines-fill"></i>About us</a>
+  <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
   <a href="#"><i class="bi bi-telephone"></i>Contact us</a>
-  <a href="#"><i class="bi bi-stars"></i>Special offers</a>
+  <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
   <a href="#"><i class="bi bi-hourglass-split"></i>Last min appoitment</a>
 </div>
 
@@ -555,7 +563,7 @@ font-family: 'Roboto Flex';
   </div>
 </div>
 <div class="header" id="myHeader">
-    <h2 style="margin-left: 20px;">Nova</h2>
+    <h2 ><a href="Nova.html">Nova</a></h2>
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!--........................CONTENT..........................-->
