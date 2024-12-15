@@ -548,10 +548,29 @@ footer {
   flex: 1;
   min-width: 200px;
 }
+.footer-section-link {
+  margin: 20px;
+  flex: 1;
+  min-width: 200px;
+  color: white;
+}
+.footer-section-link:hover{
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
 .footer-section:hover{
   padding: 10px;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;}
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.footer-section-link h2 {
+  border-bottom: 2px solid #ecf0f1;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  font-size: 20px;
+}
 
 .footer-section h2 {
   border-bottom: 2px solid #ecf0f1;
@@ -811,10 +830,11 @@ footer {
   <!----------------------------------------F O O T E R------------------------------------------>
 <div class="footer-container">
   <footer>
-    <div class="footer-section">
+    <a href="aboutus.html" class="footer-section-link">
       <h2>About Us</h2>
       <p>We connect you to the best local services, making booking easy and hassle-free.</p>
-    </div>
+    
+    </a>
     <div class="footer-section">
       <h2>Contact Us</h2>
       <p>Email: support@nova.com</p>
