@@ -24,11 +24,16 @@ body {
   text-align: center;
 }
 
+
 .header {
-  padding: 10px 16px;
+  padding: 10px 10px;
   background:rgb(202, 135, 135);
   color: #f1f1f1;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
 }
+
 
 .content {
   padding: 16px;
@@ -590,12 +595,15 @@ body {
 <!-----------navbar sidebar------------>
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
-  <a href="#"><i class="bi bi-person-lines-fill"></i>About us</a>
-  <a href="#"><i class="bi bi-telephone"></i>Contact us</a>
-  <a href="#"><i class="bi bi-stars"></i>Special offers</a>
-  <a href="#"><i class="bi bi-hourglass-split"></i>Last min appoitment</a>
-</div>
+  <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
+  <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+  <a href="ContactUs.html"><i class="bi bi-telephone"></i>Contact us</a>
+  <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
+  <a href="#"><i class="bi bi-hourglass-split"></i>Last minute appoitment</a>
+  <a href="Dashboard.html"><i class="bi bi-hourglass-split"></i>Dashboard</a>
+  
 
+</div>
 
 <!-- Pop-up form -->
 <div id="popup" class="popup-overlay">
@@ -617,10 +625,9 @@ body {
   </div>
 </div>
 <div class="header" id="myHeader">
-  <h2>Nova</h2>
-    <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>  
+  <h2 ><a href="Nova.html">Nova</a></h2>
+  <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
-
 <h2>Special Offers</h2>
 <p></p>
 
