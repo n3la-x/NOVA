@@ -557,7 +557,70 @@
             <div id="form-feedback" style="display: none;">Thank you for reaching out! We'll get back to you shortly.</div>
         </section>
     </main>
+    <script>
+      
+        /*---------sidebar---------------*/
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+        
+          /* ------- popup ---------------*/
+        function openPopup() {
+          document.getElementById('popup').style.display = 'flex';
+        }
+        
+        function closePopup() {
+          document.getElementById('popup').style.display = 'none';
+        }
+        /*pop up end*/
+        window.onscroll = function() {myFunction()};
+        
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+        
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+        // Embedded JavaScript
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("contact-form");
+            const feedback = document.getElementById("form-feedback");
 
+            form.addEventListener("submit", (event) => {
+                event.preventDefault(); // Prevent the form from submitting normally
+
+                // Extract form data
+                const name = form.name.value.trim();
+                const email = form.email.value.trim();
+                const message = form.message.value.trim();
+
+                // Basic validation
+                if (!name || !email || !message) {
+                    alert("Please fill out all fields.");
+                    return;
+                }
+
+                // Simulate form submission (e.g., via an API)
+                console.log("Form submitted:", { name, email, message });
+
+                // Show feedback message
+                feedback.style.display = "block";
+
+                // Clear the form
+                form.reset();
+            });
+        });
+    </script>
 
     
 </body>
