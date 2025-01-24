@@ -3,18 +3,586 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresha Dashboard</title>
-    
+    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <title style="color:#E1ACAC ;">Dashboard</title>
+    <style>
+    body {
+        font-family: Georgia, serif;
+        margin: 0;
+        background-color: #e5e1dab7;
+      
+      }
+      
+      .top-container {
+        background-color:rgb(229, 225, 218);
+        padding: 30px;
+        text-align: center;
+      }
+      
+      .header {
+        padding: 10px 16px;
+        background:rgb(202, 135, 135);
+        color: #f1f1f1;
+      }
+      
+      .content {
+        padding: 16px;
+      }
+      
+      .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+      
+      .sticky + .content {
+        padding-top: 102px;
+      }
+      
+      /*---------------------navbar-----------------------*/
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color:rgb(241, 240, 232);
+        color: rgb(168, 124, 124);
+        padding:  5px 5px;
+        border-radius: 20px;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+      }
+      .navbar-right  {
+        display: flex;
+      }
+      .navbar-left{
+        display: flex;
+      }
+      .navbar  a{
+        padding: 15px;
+        color: rgb(168, 124, 124);
+        font-size: 17px;
+       
+      }
+      
+      .navbar a:hover {
+        background-color: rgb(202, 135, 135);
+        color: white;
+        box-shadow: 0px 5px 10px 0px rgb(225, 172, 172);
+        border-radius: 5px;
+      }
+      
+      .active {
+        width: 60px;
+        border-radius: 20px;
+      }
+      
+      @media screen and (max-width: 500px) {
+        .navbar {
+          flex-direction: column;
+          align-items: center;
+        }
+        .navbar-left, .navbar-right {
+          flex-direction: column;
+          width: 100%;
+        }
+        .navbar-left .active {
+          margin-left: 40%;
+          text-align: center;
+          align-items: center;
+        }
+        .navbar a {
+          width: 100%;
+          text-align: center;
+        }
+      
+      }
+      
+      
+      /* Pop-up form container */
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:#503c3c61;
+        backdrop-filter: blur(30px);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      
+      /* Pop-up form content */
+      .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        text-align: center;
+      }
+      
+      /* Close button */
+      .close-btn {
+        background-color:rgb(168, 124, 124);
+        color: white;
+        position: fixed;
+        top: 39%;
+        border: none;
+        padding: 5px;
+        right: 890px;
+        font-size: 25px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .submit-btn{
+        background-color: rgb(168, 124, 124);
+        color: white;
+        border: none;
+        margin-top: 7%;
+        padding: 10px 55px;
+        top: 0px;
+        float: center;
+        font-size: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+        .close-btn:hover {
+        background-color: rgb(225, 172, 172);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      .submit-btn:hover{
+        background-color: rgb(225, 172, 172);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+      
+      }
+      
+      /* Responsive layout */
+      @media screen and (max-width: 500px) {
+        .language-btn {
+          font-size: 14px;
+          padding: 10px 15px;
+        }
+      
+        .popup-content {
+          padding: 15px;
+        }
+      
+        .close-btn {
+        background-color:#CA8787;
+        color: white;
+        position: fixed;
+        top: 39%;
+        border: none;
+        padding: 5px ;
+        right: 375px;
+        font-size: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+      }
+      
+      /*----------------------hr line----------------------------*/
+             h4 {
+                  display: flex;
+                  flex-direction: row;
+                  color:#E1ACAC;
+                  padding: 3px 5px 3px 5px;
+              }
+              
+              h4:before,
+              h4:after {
+                  content: "";
+                  flex: 1 1;
+                  border-bottom: 1px solid #E1ACAC;
+                  margin: auto;
+              }
+       /*-------------------side bar---------------*/
+        .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: rgb(219, 181, 181);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+      
+      .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .sidebar a:hover {
+        color: #f1f1f1;
+      }
+      
+      .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 30px;
+      }
+      
+      .openbtn {
+        position: absolute;
+        top: 150px;
+        right:20px;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: rgb(229, 225, 218);
+        border-radius: 3px;
+       color: rgb(168, 124, 124);
+        padding: 10px 15px;
+        border: none;
+      }
+      
+      .openbtn:hover {
+        background-color:#82828220;
+        color: rgb(229, 225, 218);
+        box-shadow: 0px 4px 8px  rgb(229, 225, 218);
+      }
+      
+      
+      
+      @media screen and (max-height: 450px) {
+        .sidebar {padding-top: 15px;}
+        .sidebar a {font-size: 18px;}
+        .openbtn {
+        position: absolute;
+        top: 90px;
+        right:10px;
+        font-size: 15px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+      }
+      }
+      @media screen and (max-width: 500px) {
+        .openbtn {
+        position: absolute;
+        top: 306px;
+        right:10px;
+        font-size: 15px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+      }
+      }
+        /*--------------BUTONAT TE KATEGORIT-----------------*/   
+        .button-ctg {
+        --c:   rgb(219, 181, 181); /* NGJYRA E BUTONIT*/
+        
+        box-shadow: 0 0 0 .1em inset var(--c); 
+        --_g: linear-gradient(var(--c) 0 0) no-repeat;
+        background: 
+          var(--_g) calc(var(--_p,0%) - 100%) 0%,
+          var(--_g) calc(200% - var(--_p,0%)) 0%,
+          var(--_g) calc(var(--_p,0%) - 100%) 100%,
+          var(--_g) calc(200% - var(--_p,0%)) 100%;
+        background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+        outline-offset: .1em;
+        transition: background-size .4s, background-position 0s .4s;
+        color: #818181 ;
+      }
+      .button-ctg:hover {
+        --_p: 100%;
+        transition: background-position .4s, background-size 0s;
+        color:white ;
+      }
+      .button-ctg:active {
+        box-shadow: 0 0 9e9q inset #0009; 
+        background-color: var(--c);
+        color: #818181;
+      }
+      
+      .button-ctg {
+        font-family: system-ui, sans-serif;
+        font-size: 15px;
+        cursor: pointer;
+        padding: 10px 15px;
+        margin: 20px 10px; 
+        border: none;
+      }   
+      /*------------------BUTON SPECIAL OFFERS---------------*/
+      @import url("https://fonts.googleapis.com/css?family=Raleway");
+      
+      :root {
+        --glow-color: hsl(186 100% 69%);
+      }
+      
+      .glowing-btn {
+        position: relative;
+        color: var(--glow-color);
+        cursor: pointer;
+        padding: 0.35em 1em;
+        border: 0.15em solid var(--glow-color);
+        border-radius: 0.45em;
+        background: none;
+        perspective: 2em;
+        font-family: "Raleway", sans-serif;
+        font-size: 2em;
+        font-weight: 900;
+        letter-spacing: 1em;
+      
+        -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+          0px 0px 0.5em 0px var(--glow-color);
+        -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+          0px 0px 0.5em 0px var(--glow-color);
+        box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+          0px 0px 0.5em 0px var(--glow-color);
+        animation: border-flicker 2s linear infinite;
+      }
+      
+      .glowing-txt {
+        float: left;
+        margin-right: -0.8em;
+        -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+          0 0 0.45em var(--glow-color);
+        -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+          0 0 0.45em var(--glow-color);
+        text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+        animation: text-flicker 3s linear infinite;
+      }
+      
+      .faulty-letter {
+        opacity: 0.5;
+        animation: faulty-flicker 2s linear infinite;
+      }
+      
+      .glowing-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.7;
+        filter: blur(1em);
+        transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+        background: var(--glow-color);
+        pointer-events: none;
+      }
+      
+      .glowing-btn::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        z-index: -1;
+        background-color: var(--glow-color);
+        box-shadow: 0 0 2em 0.2em var(--glow-color);
+        transition: opacity 100ms linear;
+      }
+      
+      .glowing-btn:hover {
+        color: rgba(0, 0, 0, 0.8);
+        text-shadow: none;
+        animation: none;
+      }
+      
+      .glowing-btn:hover .glowing-txt {
+        animation: none;
+      }
+      
+      .glowing-btn:hover .faulty-letter {
+        animation: none;
+        text-shadow: none;
+        opacity: 1;
+      }
+      
+      .glowing-btn:hover:before {
+        filter: blur(1.5em);
+        opacity: 1;
+      }
+      
+      .glowing-btn:hover:after {
+        opacity: 1;
+      }
+      /*-----------CARD------------*/
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+        margin-block-end: 30px;
+      
+      }
+      
+      .row {
+          margin: 0 -5px;
+          padding: 0 6px;
+        float: left;
+        width: 100%;
+      }
+      
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+      
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        text-align: left;
+        background-color: #f1f1f1;
+        border-radius: 5%;
+        cursor: pointer;
+        
+      }
+      
+      @keyframes faulty-flicker {
+        0% {
+          opacity: 0.1;
+        }
+        2% {
+          opacity: 0.1;
+        }
+        4% {
+          opacity: 0.5;
+        }
+        19% {
+          opacity: 0.5;
+        }
+        21% {
+          opacity: 0.1;
+        }
+        23% {
+          opacity: 1;
+        }
+        80% {
+          opacity: 0.5;
+        }
+        83% {
+          opacity: 0.4;
+        }
+      
+        87% {
+          opacity: 1;
+        }
+      }
+      
+      @keyframes text-flicker {
+        0% {
+          opacity: 0.1;
+        }
+      
+        2% {
+          opacity: 1;
+        }
+      
+        8% {
+          opacity: 0.1;
+        }
+      
+        9% {
+          opacity: 1;
+        }
+      
+        12% {
+          opacity: 0.1;
+        }
+        20% {
+          opacity: 1;
+        }
+        25% {
+          opacity: 0.3;
+        }
+        30% {
+          opacity: 1;
+        }
+      
+        70% {
+          opacity: 0.7;
+        }
+        72% {
+          opacity: 0.2;
+        }
+      
+        77% {
+          opacity: 0.9;
+        }
+        100% {
+          opacity: 0.9;
+        }
+      }
+      
+      @keyframes border-flicker {
+        0% {
+          opacity: 0.1;
+        }
+        2% {
+          opacity: 1;
+        }
+        4% {
+          opacity: 0.1;
+        }
+      
+        8% {
+          opacity: 1;
+        }
+        70% {
+          opacity: 0.7;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      
+      @media only screen and (max-width: 600px) {
+        .glowing-btn{
+          font-size: 1em;
+        }
+      }
+      
+      </style>
+   
+ 
   
 </head>
 <body>
-    <header>
-        <h1>Fresha Dashboard</h1>
-    </header>
+   
     <div class="top-container">
         <div class="navbar">
           <div class="navbar-left">
-            <h2 style="  font-family: 'Tangerine', serif; font-size: 40px;">Book wellnes services !</h2>
+            <img src="logo.png" class="active" alt="">
           </div>
           <div class="navbar-right">
             <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
@@ -23,18 +591,40 @@
           </div>
         </div>
       </div>
-<!-------------------Navbar SIDEBAR----------------->
-    <div id="mySidebar" class="sidebar">
+      <!-----------navbar sidebar------------>
+      <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
-        <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
-        <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+        <a href="#"><i class="bi bi-person-lines-fill"></i>About us</a>
         <a href="#"><i class="bi bi-telephone"></i>Contact us</a>
-        <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
-        <a href="#"><i class="bi bi-hourglass-split"></i>Last minute appoitment</a>
-        <a href="#"><i class="bi bi-hourglass-split"></i>Dashboard</a>
-        
-      
+        <a href="#"><i class="bi bi-stars"></i>Special offers</a>
+        <a href="#"><i class="bi bi-hourglass-split"></i>Last min appoitment</a>
       </div>
+      
+      
+      <!-- Pop-up form -->
+      <div id="popup" class="popup-overlay">
+        <div class="popup-content">
+          <h3 style="color:#503C3C;">Select Your Language</h3>
+          <form>
+            <label for="language" style="color: #493628;">Choose a language:</label>
+            <select id="language" name="language">
+              <option value="english">English</option>
+              <option value="spanish">Spanish</option>
+              <option value="french">French</option>
+              <option value="german">German</option>
+              <option value="chinese">Chinese</option>
+            </select>
+            <br><br>
+            <input type="submit" class="submit-btn" value="Submit">
+          </form>
+          <button class="close-btn" onclick="closePopup()"><i class="bi bi-x-square"></i></button>
+        </div>
+      </div>
+      <div class="header" id="myHeader">
+        <h2>Nova</h2>
+          <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>  
+      </div>
+      
 
     <div class="container">
         <div class="card">
@@ -70,5 +660,39 @@
     <footer>
         <p>&copy; 2025 Fresha Dashboard</p>
     </footer>
+    <script>
+        /*---------sidebar---------------*/
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+        
+          /* ------- popup ---------------*/
+        function openPopup() {
+          document.getElementById('popup').style.display = 'flex';
+        }
+        
+        function closePopup() {
+          document.getElementById('popup').style.display = 'none';
+        }
+        /*pop up end*/
+        window.onscroll = function() {myFunction()};
+        
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+        
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+        </script>
 </body>
 </html>
