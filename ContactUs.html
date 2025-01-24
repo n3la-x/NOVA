@@ -502,15 +502,18 @@
         </div>
       </div>
       <!-----------navbar sidebar------------>
+     
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
-        <a href="#"><i class="bi bi-person-lines-fill"></i>About us</a>
-        <a href="#"><i class="bi bi-telephone"></i>Contact us</a>
-        <a href="#"><i class="bi bi-stars"></i>Special offers</a>
-        <a href="#"><i class="bi bi-hourglass-split"></i>Last min appoitment</a>
-        <a href="#"><i class=""></i>Dashboard</a>
-      </div>
+        <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
+        <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+        <a href="ContactUs.html"><i class="bi bi-telephone"></i>Contact us</a>
+        <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
+        <a href="#"><i class="bi bi-hourglass-split"></i>Last minute appoitment</a>
+        <a href="Dashboard.html"><i class="bi bi-hourglass-split"></i>Dashboard</a>
+        
       
+      </div>
       
       <!-- Pop-up form -->
       <div id="popup" class="popup-overlay">
@@ -593,32 +596,31 @@
             header.classList.remove("sticky");
           }
         }
-        // Embedded JavaScript
+       
         document.addEventListener("DOMContentLoaded", () => {
             const form = document.getElementById("contact-form");
             const feedback = document.getElementById("form-feedback");
 
             form.addEventListener("submit", (event) => {
-                event.preventDefault(); // Prevent the form from submitting normally
+                event.preventDefault(); 
 
-                // Extract form data
                 const name = form.name.value.trim();
                 const email = form.email.value.trim();
                 const message = form.message.value.trim();
 
-                // Basic validation
+          
                 if (!name || !email || !message) {
                     alert("Please fill out all fields.");
                     return;
                 }
 
-                // Simulate form submission (e.g., via an API)
+               
                 console.log("Form submitted:", { name, email, message });
 
-                // Show feedback message
+            
                 feedback.style.display = "block";
 
-                // Clear the form
+       
                 form.reset();
             });
         });
