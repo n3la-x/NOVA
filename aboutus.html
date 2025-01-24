@@ -518,6 +518,62 @@ font-family: 'Roboto Flex';
   width: 100%;
   flex-shrink: 0;
 }
+/*.................-------about uss--------.................*/
+.container-aboutus {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Main Layout Styling */
+        .container-ab {
+            width: 500px;
+            height: 300px;
+            display: flex;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: background-color 0.5s;
+        }
+
+        /* Menu Styling */
+        .menu {
+            width: 150px;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 2px solid #333;
+        }
+
+        .menu a {
+            color: black;
+            text-decoration: none;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: white;
+            transition: background-color 0.3s;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .menu a:hover {
+            background-color: #ddd;
+        }
+
+        /* Content Area Styling */
+        .content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
 </style>
 </head>
 <body>
@@ -567,33 +623,18 @@ font-family: 'Roboto Flex';
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!--........................CONTENT..........................-->
-<div class="content">
-<div class="container-about">
-  <main class="content-about">
-    <div class="left-panel">
-      <ul>
-        <li><a href="#home" style="text-decoration: underline;">About Nova</a></li>
-        <li><a href="#services">Legal</a></li>
-        <li><a href="#about">Digital Services Act</a></li>
-        <li><a href="#contact">How we work</a></li>
-        <li><a href="">Terms & Conditions</a></li>
-        <li><a href="">Press Centre</a></li>
-        <li><a href="">Career Opportunities</a></li>
-        <li><a href="">Sustainabillity at Nova</a></li>
-        <li><a href="">Add your business</a></li>
-      </ul>
-    </div>
-    <div class="right-panel">
-      <p>
-        Welcome to Nova, the ultimate platform for discovering, booking, and enjoying beauty and wellness services. Nova is designed to make your self-care journey seamless, enjoyable, and entirely stress-free. Whether you're looking for a trendy new haircut, a relaxing massage, a rejuvenating facial, or a complete makeover, Nova connects you with the best professionals in your area who are ready to provide outstanding service.
-
-        At Nova, we believe that self-care should be simple, accessible, and delightful. That’s why we’ve created a platform that brings together beauty and wellness providers and their clients under one easy-to-use hub. Here’s how Nova transforms your beauty and wellness experience   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum reiciendis odio ullam tenetur repellat consequuntur voluptas temporibus consectetur sequi aspernatur vitae laboriosam delectus ipsum veniam esse magni sed, aliquid voluptatibus hic assumenda iste. Praesentium minus quos sequi excepturi cum dolorum esse vel amet consequatur, explicabo molestiae dolor molestias, repellat, eius quibusdam commodi ad. Quidem deserunt autem eaque, nostrum animi sequi corporis nihil voluptatum, ipsam perspiciatis quo nobis magni odit sunt porro veniam nam nesciunt quam nisi, iusto quasi hic repellendus vero. Laudantium, consequuntur, quod et sint dolor reiciendis aliquid impedit illum molestiae suscipit voluptatum alias officia architecto ad in doloremque.   </p>
-    </div>
-  </main>
-
+<div class="container-aboutus">
+  <div class="container-ab" id="color-container">
+      <div class="menu">
+          <a href="#red" data-color="red">Go to Red</a>
+          <a href="#blue" data-color="blue">Go to Blue</a>
+          <a href="#green" data-color="green">Go to Green</a>
+          <a href="#yellow" data-color="yellow">Go to Yellow</a>
+          <a href="#purple" data-color="purple">Go to Purple</a>
+      </div>
+      <div class="content" id="color-text">Select a Color</div>
+  </div>
 </div>
-</div>  
-<h4>Our Collaboration Partners</h4>
 <!--------CAROUSELL------>
 <div class="carousel-parent-container">
   <div class="carousel-container">
@@ -669,7 +710,24 @@ font-family: 'Roboto Flex';
 
 
 <script>
-  //------------------about
+  // .....................................C O N T E N T.............................................
+  document.querySelectorAll('.menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Get color from data attribute
+                const color = this.getAttribute('data-color');
+
+                // Update container background and text
+                const container = document.getElementById('color-container');
+                const colorText = document.getElementById('color-text');
+
+                container.style.backgroundColor = color;
+                colorText.textContent = `This is ${color.charAt(0).toUpperCase() + color.slice(1)}`;
+            });
+        });
+
+  //------------------about...........................................................................
   const carouselWrapper = document.querySelector('.carousel-wrapper');
 
 // Clone cards for infinite effect
