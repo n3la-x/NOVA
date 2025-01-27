@@ -570,6 +570,144 @@ body {
   .glowing-btn{
     font-size: 1em;
   }
+  /*---------------------------------------------------F O O T E R-------------------------------------*/
+}
+.footer-container {
+  background-color: rgb(168, 124, 124);
+  color: white;
+  padding: 20px;
+  margin-top: 70px;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-section {
+  margin: 20px;
+  flex: 1;
+  min-width: 200px;
+}
+.footer-section-link {
+  margin: 20px;
+  flex: 1;
+  min-width: 200px;
+  color: white;
+}
+.footer-section-link:hover{
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.footer-section:hover{
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.footer-section-link h2 {
+  border-bottom: 2px solid #ecf0f1;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  font-size: 20px;
+}
+
+.footer-section h2 {
+  border-bottom: 2px solid #ecf0f1;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  font-size: 20px;
+}
+
+.app-links a, .social-icons a {
+  display: block;
+  margin: 5px 0;
+  color: white;
+  text-decoration: none;
+}
+
+.app-links a:hover, .social-icons a:hover {
+  color: rgb(243, 208, 215);
+  font-style: italic;
+}
+
+#leave-review-btn {
+  background-color: rgb(219, 181, 181);
+  border-radius: 10px;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  margin:0px 0px 0px 25px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#leave-review-btn:hover {
+  background-color: rgb(243, 208, 215);
+  color:rgb(126, 99, 99);
+  font-style: italic;
+}
+
+/* FORMAAA PER REVIEW*/
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content label {
+  margin: 10px 0 5px;
+}
+
+.modal-content input, .modal-content select, .modal-content textarea, .modal-content button {
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.modal-content button {
+  background-color: rgb(168, 124, 124);
+  color: white;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: rgb(243, 208, 215);
+  color:  rgb(168, 124, 124);
+  font-style: italic;
 }
 
 </style>
@@ -620,11 +758,11 @@ body {
   </div>
 </div>
 <div class="header" id="myHeader">
-  <h2 style="color: #E1ACAC;"><a href="Nova.html">Nova</a></h2>
+  <h2 ><a href="Nova.html" style="color: white;">Nova</a></h2>
   <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <br>
-<h2 style="color: #E1ACAC;" >Special Offers</h2>
+<h2 style="color: #E1ACAC;text-align: center;" >Special Offers</h2>
 <p></p>
 
 <div class="row">
