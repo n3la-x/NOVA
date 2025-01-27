@@ -247,89 +247,71 @@
                   margin: auto;
               }
        /*-------------------side bar---------------*/
-        .sidebar {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        right: 0;
-        background-color: rgb(219, 181, 181);
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-      }
-      
-      .sidebar a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-      }
-      
-      .sidebar a:hover {
-        color: #f1f1f1;
-      }
-      
-      .sidebar .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 30px;
-      }
-      
-      .openbtn {
-        position: absolute;
-        top: 150px;
-        right:20px;
-        font-size: 20px;
-        cursor: pointer;
-        background-color: rgb(229, 225, 218);
-        border-radius: 3px;
-       color: rgb(168, 124, 124);
-        padding: 10px 15px;
-        border: none;
-      }
-      
-      .openbtn:hover {
-        background-color:#82828220;
-        color: rgb(229, 225, 218);
-        box-shadow: 0px 4px 8px  rgb(229, 225, 218);
-      }
-      
-      
-      
-      @media screen and (max-height: 450px) {
-        .sidebar {padding-top: 15px;}
-        .sidebar a {font-size: 18px;}
-        .openbtn {
-        position: absolute;
-        top: 90px;
-        right:10px;
-        font-size: 15px;
-        cursor: pointer;
-        background-color: #111;
-        color: white;
-        padding: 5px 10px;
-        border: none;
-      }
-      }
-      @media screen and (max-width: 500px) {
-        .openbtn {
-        position: absolute;
-        top: 306px;
-        right:10px;
-        font-size: 15px;
-        cursor: pointer;
-        background-color: #111;
-        color: white;
-        padding: 5px 10px;
-        border: none;
-      }
-      }
+       .sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: rgb(219, 181, 181);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: linear;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+  font-style: italic;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 36px;
+  margin-left: 30px;
+}
+
+
+
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+  
+}
+.openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: rgb(229, 225, 218);
+      color: rgb(168, 124, 124);
+      padding: 10px 15px;
+      margin: 0 20px;
+      border: none;
+      border-radius: 3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .openbtn:hover {
+      background-color: #82828220;
+      color: rgb(229, 225, 218);
+      box-shadow: 0px 4px 8px rgb(229, 225, 218);
+    }
         /*--------------BUTONAT TE KATEGORIT-----------------*/   
         .button-ctg {
         --c:   rgb(219, 181, 181); /* NGJYRA E BUTONIT*/
