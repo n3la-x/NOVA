@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -18,15 +18,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <!--font link-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Pangolin&family=Parkinsans:wght@300..800&family=Poiret+One&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 <!--font link end-->
-<title>Special Offers</title>
+    <title> Nova</title>
 <style>
   
-  .top-container {
+body {
+  font-family:'Poiret One';
+  margin: 0;
+  background-color: #e5e1dab7;
+
+}
+
+.top-container {
   background-color:rgb(229, 225, 218);
   padding: 30px;
   text-align: center;
@@ -61,7 +69,6 @@
   padding-top: 102px;
 }
 
-
 /*---------------------navbar-----------------------*/
 .navbar {
   display: flex;
@@ -69,7 +76,7 @@
   align-items: center;
   background-color:rgb(241, 240, 232);
   color: rgb(168, 124, 124);
-  padding:  5px 5px;
+  padding:  0px 10px;
   border-radius: 20px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
@@ -80,10 +87,11 @@
   display: flex;
 }
 .navbar  a{
-  padding: 15px;
+  padding: 10px;
+  margin: 0px 5px;
   color: rgb(168, 124, 124);
-  font-size: 17px;
- 
+  font-size: 20px;
+  text-decoration: none;
 }
 
 .navbar a:hover {
@@ -118,8 +126,6 @@
   }
 
 }
-
-
 /* Pop-up form container */
 .popup-overlay {
   position: fixed;
@@ -135,7 +141,7 @@
   z-index: 9999;
 }
 
-/* Pop-up form content */
+
 .popup-content {
   background: white;
   padding: 20px;
@@ -146,19 +152,6 @@
   text-align: center;
 }
 
-/* Close button */
-.close-btn {
-  background-color:rgb(168, 124, 124);
-  color: white;
-  position: fixed;
-  top: 39%;
-  border: none;
-  padding: 5px;
-  right: 890px;
-  font-size: 25px;
-  border-radius: 5px;
-  cursor: pointer;
-}
 .submit-btn{
   background-color: rgb(168, 124, 124);
   color: white;
@@ -171,17 +164,13 @@
   border-radius: 5px;
   cursor: pointer;
 }
-  .close-btn:hover {
-  background-color: rgb(225, 172, 172);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-}
+
 .submit-btn:hover{
   background-color: rgb(225, 172, 172);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 
 }
 
-/* Responsive layout */
 @media screen and (max-width: 500px) {
   .language-btn {
     font-size: 14px;
@@ -192,23 +181,10 @@
     padding: 15px;
   }
 
-  .close-btn {
-  background-color:#CA8787;
-  color: white;
-  position: fixed;
-  top: 39%;
-  border: none;
-  padding: 5px ;
-  right: 375px;
-  font-size: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  }
 }
 
-
  /*-------------------side bar---------------*/
- .sidebar {
+  .sidebar {
   height: 100%;
   width: 0;
   position: fixed;
@@ -273,291 +249,9 @@
       color: rgb(229, 225, 218);
       box-shadow: 0px 4px 8px rgb(229, 225, 218);
     }
-  /*--------------BUTONAT TE KATEGORIT-----------------*/   
-  .button-ctg {
-  --c:   rgb(219, 181, 181); /* NGJYRA E BUTONIT*/
+
   
-  box-shadow: 0 0 0 .1em inset var(--c); 
-  --_g: linear-gradient(var(--c) 0 0) no-repeat;
-  background: 
-    var(--_g) calc(var(--_p,0%) - 100%) 0%,
-    var(--_g) calc(200% - var(--_p,0%)) 0%,
-    var(--_g) calc(var(--_p,0%) - 100%) 100%,
-    var(--_g) calc(200% - var(--_p,0%)) 100%;
-  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-  outline-offset: .1em;
-  transition: background-size .4s, background-position 0s .4s;
-  color: #818181 ;
-}
-.button-ctg:hover {
-  --_p: 100%;
-  transition: background-position .4s, background-size 0s;
-  color:white ;
-}
-.button-ctg:active {
-  box-shadow: 0 0 9e9q inset #0009; 
-  background-color: var(--c);
-  color: #818181;
-}
-
-.button-ctg {
-  font-family: system-ui, sans-serif;
-  font-size: 15px;
-  cursor: pointer;
-  padding: 10px 15px;
-  margin: 20px 10px; 
-  border: none;
-}   
-/*------------------BUTON SPECIAL OFFERS---------------*/
-@import url("https://fonts.googleapis.com/css?family=Raleway");
-
-:root {
-  --glow-color: hsl(186 100% 69%);
-}
-
-.glowing-btn {
-  position: relative;
-  color: var(--glow-color);
-  cursor: pointer;
-  padding: 0.35em 1em;
-  border: 0.15em solid var(--glow-color);
-  border-radius: 0.45em;
-  background: none;
-  perspective: 2em;
-  font-family: "Raleway", sans-serif;
-  font-size: 2em;
-  font-weight: 900;
-  letter-spacing: 1em;
-
-  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
-  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
-  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
-  animation: border-flicker 2s linear infinite;
-}
-
-.glowing-txt {
-  float: left;
-  margin-right: -0.8em;
-  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.45em var(--glow-color);
-  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.45em var(--glow-color);
-  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
-  animation: text-flicker 3s linear infinite;
-}
-
-.faulty-letter {
-  opacity: 0.5;
-  animation: faulty-flicker 2s linear infinite;
-}
-
-.glowing-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.7;
-  filter: blur(1em);
-  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
-  background: var(--glow-color);
-  pointer-events: none;
-}
-
-.glowing-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
-  z-index: -1;
-  background-color: var(--glow-color);
-  box-shadow: 0 0 2em 0.2em var(--glow-color);
-  transition: opacity 100ms linear;
-}
-
-.glowing-btn:hover {
-  color: rgba(0, 0, 0, 0.8);
-  text-shadow: none;
-  animation: none;
-}
-
-.glowing-btn:hover .glowing-txt {
-  animation: none;
-}
-
-.glowing-btn:hover .faulty-letter {
-  animation: none;
-  text-shadow: none;
-  opacity: 1;
-}
-
-.glowing-btn:hover:before {
-  filter: blur(1.5em);
-  opacity: 1;
-}
-
-.glowing-btn:hover:after {
-  opacity: 1;
-}
-/*-----------CARD------------*/
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-  margin-block-end: 30px;
-
-}
-
-.row {
-    margin: 0 -5px;
-    padding: 0 6px;
-  float: left;
-  width: 100%;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: left;
-  background-color: #f1f1f1;
-  border-radius: 2%;
-  cursor: pointer;
-  
-}
-
-@keyframes faulty-flicker {
-  0% {
-    opacity: 0.1;
-  }
-  2% {
-    opacity: 0.1;
-  }
-  4% {
-    opacity: 0.5;
-  }
-  19% {
-    opacity: 0.5;
-  }
-  21% {
-    opacity: 0.1;
-  }
-  23% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0.5;
-  }
-  83% {
-    opacity: 0.4;
-  }
-
-  87% {
-    opacity: 1;
-  }
-}
-
-@keyframes text-flicker {
-  0% {
-    opacity: 0.1;
-  }
-
-  2% {
-    opacity: 1;
-  }
-
-  8% {
-    opacity: 0.1;
-  }
-
-  9% {
-    opacity: 1;
-  }
-
-  12% {
-    opacity: 0.1;
-  }
-  20% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0.3;
-  }
-  30% {
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 0.7;
-  }
-  72% {
-    opacity: 0.2;
-  }
-
-  77% {
-    opacity: 0.9;
-  }
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes border-flicker {
-  0% {
-    opacity: 0.1;
-  }
-  2% {
-    opacity: 1;
-  }
-  4% {
-    opacity: 0.1;
-  }
-
-  8% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .glowing-btn{
-    font-size: 1em;
-  }
-  /*---------------------------------------------------F O O T E R-------------------------------------*/
-}
+/*---------------------------------------------------F O O T E R-------------------------------------*/
 .footer-container {
   background-color: rgb(168, 124, 124);
   color: white;
@@ -695,15 +389,52 @@ footer {
   color:  rgb(168, 124, 124);
   font-style: italic;
 }
+/**.................................css i cardave............................**/
+.container-card{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color:#e5e1dab7 ;
+      padding: 20px;
+    }
 
+    .card-deck {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      width: 100%;
+    }
+    .card-img-top {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover; 
+}
+
+  
+    @media (max-width: 768px) {
+      .container-card {
+        padding: 10px;
+      }
+    }
+
+
+
+       
 </style>
 </head>
 <body>
-  <div class="top-container">
-    <div class="navbar">
-      <div class="navbar-left">
-        <h2 style="  font-family: 'Tangerine', serif; font-size: 40px;">Book wellnes services !</h2>
-      </div>
+<div class="top-container">
+  <div class="navbar">
+    <div class="navbar-left">
+      <h2 style="  font-family: 'Tangerine', serif; font-size: 40px;">Book wellnes services !</h2>
+    </div>
     <div class="navbar-right">
       <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
       <a href="#"><i class="bi bi-cloud-arrow-down-fill"></i> Download the app</a>
@@ -723,7 +454,8 @@ footer {
 
 </div>
 
-<!-- Pop-up form -->
+
+<!-- -------------------------Pop-up form--------------- -->
 <div id="popup" class="popup-overlay">
   <div class="popup-content">
     <h3 style="color:#503C3C;">Select Your Language</h3>
@@ -739,199 +471,293 @@ footer {
       <br><br>
       <input type="submit" class="submit-btn" value="Submit">
     </form>
-    <button class="close-btn" onclick="closePopup()"><i class="bi bi-x-square"></i></button>
+   
   </div>
 </div>
 <div class="header" id="myHeader">
-  <h2 ><a href="Nova.html" style="color: white;">Nova</a></h2>
-  <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
+    <h2 style="margin-left: 20px;">Nova</h2>
+    <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
-<br>
-<h2 style="color: #E1ACAC;text-align: center;" >Special Offers</h2>
-<p></p>
-
-<div class="row">
-  <div class="column">
-    <img src="RinaZaiti.png" alt=""  width="357" height="200" style="border-radius: 2% ;">
+<!---------------------------------CONTENT------------------------------------------->
+<div class="container-card">
+<div class="card-deck">
     <div class="card">
-      <h3>Rina Zaiti Studio</h3>
-      <p style="white-space: pre;">5.0 <span class="fa fa-star"></span>           (940)</p>
-      <p>Rruga B, mbrapa Maxi24 Tropical, Prishtina</p>
-      <p>French Tip Nails</p>
-      <p style="white-space: pre;">15€  <s style="color: #818181;">20€ </s></p>
+      <img src="RinaZaiti.png" class="card-img-top" alt="Rina Zaiti">
+      <div class="card-body">
+        <h5 class="card-title">Rina Zaiti</h5>
+        <p style="white-space: pre;">5.0 <span class="fa fa-star"></span>           (940)</p>
+        <p>Rruga B, mbrapa Maxi24 Tropical, Prishtina</p>
+        <p>French Tip Nails</p>
+        <p style="white-space: pre;">15€  <s style="color: #818181;">20€ </s></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Get the offer!</small>
+      </div>
     </div>
-  </div>
-
-  <div class="column">
-    <img src="ErezaStudio.png"alt=""  width="357" height="200" style="border-radius: 2%;">
     <div class="card">
-      <h3>Ereza's Studio</h3>
-      <p style="white-space: pre;">4.5 <span class="fa fa-star"></span>          (543)</p>
-      <p>Nr.7 Faik Konica, Prishtina 10000</p>
-      <p>Full Set with Gel</p>
-      <p style="white-space: pre;">10€  <s style="color: #818181;">15€ </s></p>
+      <img src="ErezaStudio.png" class="card-img-top" alt="ErezaStudio">
+      <div class="card-body">
+        <h5 class="card-title">Ereza's Studio</h5>
+        <p style="white-space: pre;">4.5 <span class="fa fa-star"></span>          (543)</p>
+        <p>Nr.7 Faik Konica, Prishtina 10000</p>
+        <p>Full Set with Gel</p>
+        <p style="white-space: pre;">10€  <s style="color: #818181;">15€ </s></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Get the offer!</small>
+      </div>
     </div>
-  </div>
-  
-  <div class="column">
-    <img src="CherryBlossom.jpg"alt="" width="357" height="200" style="border-radius: 2% ;">
-    <div class="card">
-      <h3>Cherry Blossom Studio</h3>
-      <p style="white-space: pre;">4.8 <span class="fa fa-star"></span>          (576)</p>
-      <p>Qendra tregtare,Bregu i Diellit,10000</p>
-      <p>Pedicure with Treatments</p>
-      <p style="white-space: pre;">25€  <s style="color: #818181;">35€ </s></p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <img src="Beautifly.png" alt="" width="357" height="200" style="border-radius: 2% ;">
-    <div class="card">
-      <h3>Beautifly Studio</h3>
-      <p style="white-space: pre;">5.0 <span class="fa fa-star"></span>          (520)</p>
-      <p>Zija Shemsiu, Prishtina 10000</p>
-      <p>Chrome Nails </p>
-      <p style="white-space: pre;">15€  <s style="color: #818181;">20€ </s></p>
-    </div>
-  </div>
 
-
-  
-  <div class="column">
-    <img src="VeronaK nails.jpg" alt="" width="357" height="200" style="border-radius: 2% ;">
     <div class="card">
-      <h3>VeronaK Studio</h3>
-      <p style="white-space: pre;">4.3 <span class="fa fa-star"></span>          (620)</p>
-      <p>Rruga B, Prishtina 10000</p>
-      <p>Ombre Nails</p>
-      <p style="white-space: pre;">20€  <s style="color: #818181;">25€ </s></p>
+      <img src="CherryBlossom.jpg" class="card-img-top" alt="CherryBlossom">
+      <div class="card-body">
+        <h5 class="card-title">CherryBlossom Studio</h5>
+        <p style="white-space: pre;">4.8 <span class="fa fa-star"></span>          (576)</p>
+        <p>Qendra tregtare,Bregu i Diellit,10000</p>
+        <p>Pedicure with Treatments</p>
+        <p style="white-space: pre;">25€  <s style="color: #818181;">35€ </s></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Get the offer!</small>
+      </div>
     </div>
-  </div>
 
-  <div class="column">
-    <img src="Ibc.jpg" alt="" width="357" height="200" style="border-radius: 2% ;">
     <div class="card">
-      <h3>Ibc Nail Studio</h3>
-      <p style="white-space: pre;">5.0 <span class="fa fa-star"></span>          (820)</p>
+      <img src="Ibc.jpg" class="card-img-top" alt="Ibc">
+      <div class="card-body">
+        <h5 class="card-title">Ibc Nail Studio</h5>
+        <p style="white-space: pre;">5.0 <span class="fa fa-star"></span>          (820)</p>
       <p>Banesat e Arabve, Prishtina 10000</p>
       <p>Cat Eye Nails</p>
       <p style="white-space: pre;">30€  <s style="color: #818181;">40€ </s></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Get the offer!</small>
+      </div>
     </div>
-  </div>
 
-  <div class="column">
-    <img src="Drina.png" alt="" width="357" height="200" style="border-radius: 2% ;">
     <div class="card">
-      <h3>Drina Nails</h3>
-      <p style="white-space: pre;">4.7 <span class="fa fa-star"></span>          (520)</p>
+      <img src="Beautifly.png" class="card-img-top" alt="Beautifly">
+      <div class="card-body">
+        <h5 class="card-title">Beautifly Studio</h5>
+        <p style="white-space: pre;">5.0 <span class="fa fa-star"></span>          (520)</p>
+        <p>Zija Shemsiu, Prishtina 10000</p>
+        <p>Chrome Nails </p>
+        <p style="white-space: pre;">15€  <s style="color: #818181;">20€ </s></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Get the offer!</small>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="VeronaK nails.jpg" class="card-img-top" alt="VeronaK">
+      <div class="card-body">
+        <h5 class="card-title">VeronaK Nails</h5>
+        <p style="white-space: pre;">4.3 <span class="fa fa-star"></span>          (620)</p>
+        <p>Rruga B, Prishtina 10000</p>
+        <p>Ombre Nails</p>
+        <p style="white-space: pre;">20€  <s style="color: #818181;">25€ </s></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Get the offer!</small>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="Drina.png" class="card-img-top" alt="Drina">
+      <div class="card-body">
+        <h5 class="card-title">Drina Nails</h5>
+        <p style="white-space: pre;">4.7 <span class="fa fa-star"></span>          (520)</p>
       <p>Muslim Mulliqi 17, Prishtina 10000</p>
       <p>Manicure</p>
       <p style="white-space: pre;">20€  <s style="color: #818181;">30€ </s></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Get the offer!</small>
+      </div>
     </div>
-  </div>
 
-  <div class="column">
-    <img src="Blerta'sBeauty.png" alt="" width="357" height="200" style="border-radius: 2% ;">
     <div class="card">
-      <h3>Blerta's Beauty</h3>
-      <p style="white-space: pre;">4.9 <span class="fa fa-star"></span>          (220)</p>
+      <img src="Blerta'sBeauty.png" class="card-img-top" alt="Blerta'sBeauty">
+      <div class="card-body">
+        <h5 class="card-title">Blerta's Beauty</h5>
+        <p style="white-space: pre;">4.9 <span class="fa fa-star"></span>          (220)</p>
       <p>Zagrebi 130, Prishtina 10000</p>
       <p>French Tip Nails</p>
       <p style="white-space: pre;">10€  <s style="color: #818181;">15€ </s></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Get the offer!</small>
+      </div>
     </div>
-  </div>
+
+    <div class="card">
+      <img src="ErezaStudio.png" class="card-img-top" alt="ErezaStudio">
+      <div class="card-body">
+        <h5 class="card-title">Ereza's Studio</h5>
+        <p style="white-space: pre;">4.5 <span class="fa fa-star"></span>          (543)</p>
+        <p>Nr.7 Faik Konica, Prishtina 10000</p>
+        <p>Full Set with Gel</p>
+        <p style="white-space: pre;">10€  <s style="color: #818181;">15€ </s></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Get the offer!</small>
+      </div>
+    </div>
+
+</div>
+</div>
+<!---------------------------------KRYHET content---------------------------------------->
+
   <!----------------------------------------F O O T E R------------------------------------------>
-  <div class="footer-container">
-    <footer>
-      <a href="aboutus.html" class="footer-section-link">
-        <h2>About Us</h2>
-        <p>We connect you to the best local services, making booking easy and hassle-free.</p>
-      </a>
-      <div class="footer-section-link" style="color: white;" >
-      <a href="ContactUs.html" style="color: white;" >
-        <h2 style="color: white;">Contact Us</h2>
-        <p style="color: white;">Email: support@nova.com</p>
-        <p style="color: white;">Phone: +1 234 567 890</p>
-      </a>
-      </div>
-      <div class="footer-section">
-        <h2>Download the App</h2>
-        <div class="app-links">
-          <a href="#" class="app-store">App Store</a>
-          <a href="#" class="play-store">Google Play</a>
-        </div>
-      </div>
-      <div class="footer-section">
-        <h2>Follow Us</h2>
-        <div class="social-icons">
-          <a href="#" class="social-icon"><i class="bi bi-facebook"></i>Facebook</a>
-          <a href="#" class="social-icon"><i class="bi bi-instagram"></i>Instagram</a>
-          <a href="#" class="social-icon"><i class="bi bi-twitter"></i>Twitter</a>
-        </div>
-      </div>
-      <div class="footer-section">
-        <button id="leave-review-btn">Leave a Review</button>
-      </div>
-    </footer>
-  </div>
-  
-  <!-- Review Form Modal -->
-  <div id="review-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Write a Review</h2>
-      <form id="review-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-  
-        <label for="rating">Rating:</label>
-        <select id="rating" name="rating" required>
-          <option value="5">⭐⭐⭐⭐⭐</option>
-          <option value="4">⭐⭐⭐⭐</option>
-          <option value="3">⭐⭐⭐</option>
-          <option value="2">⭐⭐</option>
-          <option value="1">⭐</option>
-        </select>
-  
-        <label for="review">Your Review:</label>
-        <textarea id="review" name="review" rows="4" required></textarea>
-  
-        <button type="submit" style="font-size: 20px;">Submit</button>
-      </form>
+<div class="footer-container">
+  <footer>
+    <a href="aboutus.html" class="footer-section-link">
+      <h2>About Us</h2>
+      <p>We connect you to the best local services, making booking easy and hassle-free.</p>
+    </a>
+    <div class="footer-section-link" style="color: white;" >
+    <a href="ContactUs.html" style="color: white;" >
+      <h2 style="color: white;">Contact Us</h2>
+      <p style="color: white;">Email: support@nova.com</p>
+      <p style="color: white;">Phone: +1 234 567 890</p>
+    </a>
     </div>
+    <div class="footer-section">
+      <h2>Download the App</h2>
+      <div class="app-links">
+        <a href="#" class="app-store">App Store</a>
+        <a href="#" class="play-store">Google Play</a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <h2>Follow Us</h2>
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="bi bi-facebook"></i>Facebook</a>
+        <a href="#" class="social-icon"><i class="bi bi-instagram"></i>Instagram</a>
+        <a href="#" class="social-icon"><i class="bi bi-twitter"></i>Twitter</a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <button id="leave-review-btn">Leave a Review</button>
+    </div>
+  </footer>
+</div>
+
+<!-- Review Form Modal -->
+<div id="review-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Write a Review</h2>
+    <form id="review-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="rating">Rating:</label>
+      <select id="rating" name="rating" required>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="1">⭐</option>
+      </select>
+
+      <label for="review">Your Review:</label>
+      <textarea id="review" name="review" rows="4" required></textarea>
+
+      <button type="submit" style="font-size: 20px;">Submit</button>
+    </form>
   </div>
-  
-  
-  <script>
-    /*---------------------------------F O O T E R------------------------------------------------*/
-    // Modal functionality
-  const leaveReviewBtn = document.getElementById('leave-review-btn');
-  const modal = document.getElementById('review-modal');
-  const closeModal = document.querySelector('.close');
-  
-  leaveReviewBtn.addEventListener('click', () => {
-    modal.style.display = 'flex';
-  });
-  
-  closeModal.addEventListener('click', () => {
+</div>
+
+
+<script>
+  /*---------------------------------F O O T E R------------------------------------------------*/
+  // Modal functionality
+const leaveReviewBtn = document.getElementById('leave-review-btn');
+const modal = document.getElementById('review-modal');
+const closeModal = document.querySelector('.close');
+
+leaveReviewBtn.addEventListener('click', () => {
+  modal.style.display = 'flex';
+});
+
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
     modal.style.display = 'none';
-  });
-  
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-  
-  // Handle review submission
-  const reviewForm = document.getElementById('review-form');
-  reviewForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Thank you for your review!');
-    modal.style.display = 'none';
-    reviewForm.reset();
-  });
-  
+  }
+});
+
+// Handle review submission
+const reviewForm = document.getElementById('review-form');
+reviewForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Thank you for your review!');
+  modal.style.display = 'none';
+  reviewForm.reset();
+});
+
+  /*--------------TESTEMONIALS CAROUSEL----------------------*/
+  const carousel = document.querySelector('.carousel');
+let isDragging = false;
+let startX;
+let scrollLeft;
+
+carousel.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startX = e.pageX - carousel.offsetLeft;
+  scrollLeft = carousel.scrollLeft;
+  carousel.style.cursor = 'grabbing';
+});
+
+carousel.addEventListener('mouseleave', () => {
+  isDragging = false;
+  carousel.style.cursor = 'grab';
+});
+
+carousel.addEventListener('mouseup', () => {
+  isDragging = false;
+  carousel.style.cursor = 'grab';
+});
+
+carousel.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+  const x = e.pageX - carousel.offsetLeft;
+  const walk = (x - startX) * 2; 
+  carousel.scrollLeft = scrollLeft - walk;
+});
+
+carousel.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  startX = e.touches[0].pageX - carousel.offsetLeft;
+  scrollLeft = carousel.scrollLeft;
+});
+
+carousel.addEventListener('touchend', () => {
+  isDragging = false;
+});
+
+carousel.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  const x = e.touches[0].pageX - carousel.offsetLeft;
+  const walk = (x - startX) * 2; // Adjust scroll speed
+  carousel.scrollLeft = scrollLeft - walk;
+});
+
+  /*..............COUNTER...........................*/
+  const counterElement = document.getElementById('counter');
+let count = 0;
+function incrementCounter() {
+  counterElement.textContent = count;
+  count = (count + 1) % 501; 
+}
+setInterval(incrementCounter, 500);
 /*---------sidebar---------------*/
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
@@ -964,8 +790,16 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector('.sticky');
+  const content = document.querySelector('.content');
+
+  if (header && content) {
+    const headerHeight = header.offsetHeight;
+    content.style.paddingTop = `${headerHeight}px`;
+  }
+});
 </script>
 
 </body>
 </html>
-
