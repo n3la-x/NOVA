@@ -1,45 +1,40 @@
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--font link-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=DM+Serif+Text:ital@0;1&family=Pangolin&family=Parkinsans:wght@300..800&family=Poiret+One&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Tangerine:wght@400;700&display=swap" rel="stylesheet"><!--font link end-->
-    <title>Log in</title>
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+<!--font link-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Pangolin&family=Parkinsans:wght@300..800&family=Poiret+One&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+<!--font link end-->
+    <title> Nova</title>
+<style>
+  
 body {
   font-family:'Poiret One';
   margin: 0;
   background-color: #e5e1dab7;
 
 }
-      .container{
-        align-items: center;
-      max-width: 400px;
-      margin: auto;
-      padding: 100px;
-      }
-     
-      .top-container {
+
+.top-container {
   background-color:rgb(229, 225, 218);
   padding: 30px;
   text-align: center;
@@ -53,14 +48,6 @@ body {
   justify-content: space-between;
   display: flex;
 }
-.header h2 a{
-  margin-left: 20px;
-  color: #f1f1f1!important;
-}
-
-.header h2 a:hover{
-  color: rgb(80, 60, 60)#818181;
-}
 @media (max-width: 768px) {
 
   .content {
@@ -70,8 +57,6 @@ body {
 
 .content {
   padding-top: 60px;
-  display: flex;
-  justify-content: center;
 }
 
 .sticky {
@@ -198,22 +183,6 @@ body {
 
 }
 
-/*----------------------hr line----------------------------*/
-        h4{
-          display: flex;
-            flex-direction: row;
-            color:#E1ACAC;
-            margin: 100px 0 0px 0;
-            font-family:'Charm';
-        }
-        
-        h4:before,
-        h4:after {
-            content: "";
-            flex: 1 1;
-            border-bottom: 1px solid #E1ACAC;
-            margin: 20px 5px;
-        }
  /*-------------------side bar---------------*/
   .sidebar {
   height: 100%;
@@ -281,7 +250,8 @@ body {
       box-shadow: 0px 4px 8px rgb(229, 225, 218);
     }
 
-  /*---------------------------------------------------F O O T E R-------------------------------------*/
+  
+/*---------------------------------------------------F O O T E R-------------------------------------*/
 .footer-container {
   background-color: rgb(168, 124, 124);
   color: white;
@@ -300,10 +270,29 @@ footer {
   flex: 1;
   min-width: 200px;
 }
+.footer-section-link {
+  margin: 20px;
+  flex: 1;
+  min-width: 200px;
+  color: white;
+}
+.footer-section-link:hover{
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
 .footer-section:hover{
   padding: 10px;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;}
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.footer-section-link h2 {
+  border-bottom: 2px solid #ecf0f1;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  font-size: 20px;
+}
 
 .footer-section h2 {
   border-bottom: 2px solid #ecf0f1;
@@ -401,162 +390,113 @@ footer {
   font-style: italic;
 }
 
-        input[type=text], input[type=password], input[type=submit]{
-        width: 50%;
-        padding: 15px;
-        margin: 5px 0 22px 0;
-        display: flex;
-        border: 1px groove rgb(164, 164, 164) ;
-        background: #ffffff;
-        border-radius: 8px;
-    
-      }
-      input[type=text]:focus, input[type=password]:focus, input[type=submit]:focus{
-        background-color: #ffffff;
-        outline: none;
-      }
-     
-      
-      hr {
-        border: 1px solid #ffffff;
-        margin-bottom: 25px;
-      }
-      
-    
-      
-      button:hover {
-        opacity:1;
-      }
-      
-    
-     .loginbtn {
-      background-color:#e5e1dab7;
-        border-style: groove;
-        border-color: #E1ACAC;
-        color: rgb(168, 124, 124);
-        padding: 14px 20px;
-        margin: 5px 0 22px 0;
-        cursor: pointer;
-        display: center;
-        width: 50%;
-        opacity: 0.9;
-        float: center;
-        width: 55%;
-        border-radius: 5%;
-       
-      }
-      
-      .container {
-        padding: 16px;
-        padding: 16px;
-    justify-content: center;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-    border-radius: 5%;
-    background-color: rgb(219, 181, 181);
-      }
-      
-      .clearfix::after {
-        content: "";
-        clear: both;
-        display: table;
-      }
-
-    
-      @media screen and (max-width: 300px) {
-       .loginbtn {
-          width: 20%;
-        }
-      }
-    </style>
+</style>
 </head>
 <body>
-  <div class="top-container">
-    <div class="navbar">
-      <div class="navbar-left">
-        <h2 style=" font-family: 'Tangerine'; font-size: 40px;">Book wellnes services !</h2>
-      </div>
-      <div class="navbar-right">
-        <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
-        <a href="#"><i class="bi bi-cloud-arrow-down-fill"></i> Download the app</a>
-        <a href="#" onclick="openPopup()"><i class="bi bi-globe" ></i> Select Language</a>
-      </div>
+<div class="top-container">
+  <div class="navbar">
+    <div class="navbar-left">
+      <h2 style="  font-family: 'Tangerine', serif; font-size: 40px;">Book wellnes services !</h2>
+    </div>
+    <div class="navbar-right">
+      <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+      <a href="#"><i class="bi bi-cloud-arrow-down-fill"></i> Download the app</a>
+      <a href="#" onclick="openPopup()"><i class="bi bi-globe" ></i> Select Language</a>
     </div>
   </div>
-  <!-----------navbar sidebar------------>
-  <div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
-    <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
-    <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
-    <a href="ContactUs.html"><i class="bi bi-telephone"></i>Contact us</a>
-    
-    <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
+</div>
+<!-----------navbar sidebar------------>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
+  <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
+  <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+  <a href="ContactUs.html"><i class="bi bi-telephone"></i>Contact us</a>
+  <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
+  <a href="#"><i class="bi bi-hourglass-split"></i>Last minute appoitment</a>
+  <a href="Dashboard.html">Dashboard</a>
+  
+
+</div>
+
+
+<!-- -------------------------Pop-up form--------------- -->
+<div id="popup" class="popup-overlay">
+  <div class="popup-content">
+    <h3 style="color:#503C3C;">Select Your Language</h3>
+    <form>
+      <label for="language" style="color: #493628;">Choose a language:</label>
+      <select id="language" name="language">
+        <option value="english">English</option>
+        <option value="spanish">Spanish</option>
+        <option value="french">French</option>
+        <option value="german">German</option>
+        <option value="chinese">Chinese</option>
+      </select>
+      <br><br>
+      <input type="submit" class="submit-btn" value="Submit">
+    </form>
    
-    <a href="Dashboard.html">Dashboard</a>
-    
-  
   </div>
-  
-  <!-- -------------------------Pop-up form--------------- -->
-  <div id="popup" class="popup-overlay">
-    <div class="popup-content">
-      <h3 style="color:#503C3C;">Select Your Language</h3>
-      <form>
-        <label for="language" style="color: #493628;">Choose a language:</label>
-        <select id="language" name="language">
-          <option value="english">English</option>
-          <option value="spanish">Spanish</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
-          <option value="chinese">Chinese</option>
-        </select>
-        <br><br>
-        <input type="submit" class="submit-btn" value="Submit">
-      </form>
-     
+</div>
+<div class="header" id="myHeader">
+    <h2 style="margin-left: 20px;">Nova</h2>
+    <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
+</div>
+<!---------------------------------CONTENT------------------------------------------->
+<div class="section">
+        <div class="mainBox">
+            <?php
+            require_once "database.php";
+
+            if (isset($_POST["logIn"])) {
+                $email = $_POST["email"];
+                $password = $_POST["password"];
+                $sql = "SELECT * FROM users WHERE email ='$email'";
+                $result = mysqli_query($conn, $sql);
+                $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+                if ($user) {
+                    if (password_verify($password, $user["password"])) {
+                        if($user['role'] == 'admin'){
+                            header("Location: ../dashboard.php");
+                        }else{
+                            header("Location: ../index.html");
+                        }
+                    } else {
+                        echo "<div class='alert alert-danger'>Password does not match</div>";
+                    }
+                } else {
+                    echo "<div class='alert alert-danger'>Email does not match</div>";
+                }
+            }
+            ?>
+            <h1>Bliss</h1>
+            <div class="logInPart">
+                <p>Log in to your account:</p>
+                <form class="logInForm" action="logIn.php" method="post">
+                    <input placeholder="Enter Email" type="email" id="email" name="email" required minlength="8">
+                    <input placeholder="Enter Password" type="password" id="password" name="password" required minlength="8">
+                    <input type="submit" value="Log In" id="logIn" name="logIn">
+                </form>
+                <p>Don't have an account? <a href="./signUp.php">Register</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="header" id="myHeader">
-      <h2><a href="Nova.html">Nova</a></h2>
-      <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
-  </div>
-  <!--....................................Login FORMA................................-->
-    <h2 style="color: rgb(168, 124, 124);margin: 5px 0 2px 655px;padding: 10px;" >Login Form</h2>
+<!---------------------------------KRYHET content---------------------------------------->
 
-<form action="/action_page.php" method="post">
-
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="password" required>
-      <input type="checkbox" onclick="myFunction()">Show Password 
-      <br>
-    <button type="submit" class="loginbtn">Login</button>
-    <br>
-    <label>
-       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-    
-           </label>
-           <br>
-  
-  
-
-    <span class="psw"><a href="#"> Forgot password?</a></span>
-    <span class="haveacc"><a href="signup.html">Don't have an account?</a></span>
-  </div>
-</form>
-<!--..................................F O O T E R............................-->
+  <!----------------------------------------F O O T E R------------------------------------------>
 <div class="footer-container">
   <footer>
-    <div class="footer-section">
+    <a href="aboutus.html" class="footer-section-link">
       <h2>About Us</h2>
       <p>We connect you to the best local services, making booking easy and hassle-free.</p>
-    </div>
-    <div class="footer-section">
-      <h2>Contact Us</h2>
-      <p>Email: support@fresha.com</p>
-      <p>Phone: +1 234 567 890</p>
+    </a>
+    <div class="footer-section-link" style="color: white;" >
+    <a href="ContactUs.html" style="color: white;" >
+      <h2 style="color: white;">Contact Us</h2>
+      <p style="color: white;">Email: support@nova.com</p>
+      <p style="color: white;">Phone: +1 234 567 890</p>
+    </a>
     </div>
     <div class="footer-section">
       <h2>Download the App</h2>
@@ -604,8 +544,9 @@ footer {
     </form>
   </div>
 </div>
+
+
 <script>
-    
   /*---------------------------------F O O T E R------------------------------------------------*/
   // Modal functionality
 const leaveReviewBtn = document.getElementById('leave-review-btn');
@@ -635,7 +576,62 @@ reviewForm.addEventListener('submit', (e) => {
   reviewForm.reset();
 });
 
-  
+  /*--------------TESTEMONIALS CAROUSEL----------------------*/
+  const carousel = document.querySelector('.carousel');
+let isDragging = false;
+let startX;
+let scrollLeft;
+
+carousel.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startX = e.pageX - carousel.offsetLeft;
+  scrollLeft = carousel.scrollLeft;
+  carousel.style.cursor = 'grabbing';
+});
+
+carousel.addEventListener('mouseleave', () => {
+  isDragging = false;
+  carousel.style.cursor = 'grab';
+});
+
+carousel.addEventListener('mouseup', () => {
+  isDragging = false;
+  carousel.style.cursor = 'grab';
+});
+
+carousel.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+  const x = e.pageX - carousel.offsetLeft;
+  const walk = (x - startX) * 2; 
+  carousel.scrollLeft = scrollLeft - walk;
+});
+
+carousel.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  startX = e.touches[0].pageX - carousel.offsetLeft;
+  scrollLeft = carousel.scrollLeft;
+});
+
+carousel.addEventListener('touchend', () => {
+  isDragging = false;
+});
+
+carousel.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  const x = e.touches[0].pageX - carousel.offsetLeft;
+  const walk = (x - startX) * 2; // Adjust scroll speed
+  carousel.scrollLeft = scrollLeft - walk;
+});
+
+  /*..............COUNTER...........................*/
+  const counterElement = document.getElementById('counter');
+let count = 0;
+function incrementCounter() {
+  counterElement.textContent = count;
+  count = (count + 1) % 501; 
+}
+setInterval(incrementCounter, 500);
 /*---------sidebar---------------*/
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
@@ -678,6 +674,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
-    
+
 </body>
 </html>
+
+
+
+
+
+
+
+
