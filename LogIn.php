@@ -18,13 +18,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="N/signin.css">
     <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 <!--font link-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Pangolin&family=Parkinsans:wght@300..800&family=Poiret+One&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 <!--font link end-->
-    <title> Nova</title>
+    <title> Nova Sign in</title>
 <style>
   
 body {
@@ -446,7 +447,7 @@ footer {
 <div class="section">
         <div class="mainBox">
             <?php
-            require_once "database.php";
+            require_once "N/database.php";
 
             if (isset($_POST["logIn"])) {
                 $email = $_POST["email"];
@@ -458,9 +459,9 @@ footer {
                 if ($user) {
                     if (password_verify($password, $user["password"])) {
                         if($user['role'] == 'admin'){
-                            header("Location: ../dashboard.php");
+                            header("Location:  dashboard.php");
                         }else{
-                            header("Location: ../index.html");
+                            header("Location:  Nova.html");
                         }
                     } else {
                         echo "<div class='alert alert-danger'>Password does not match</div>";
@@ -470,18 +471,19 @@ footer {
                 }
             }
             ?>
-            <h1>Bliss</h1>
+            <h1>Nova</h1>
             <div class="logInPart">
                 <p>Log in to your account:</p>
-                <form class="logInForm" action="logIn.php" method="post">
+                <form class="logInForm" action="LogIn.php" method="post">
                     <input placeholder="Enter Email" type="email" id="email" name="email" required minlength="8">
                     <input placeholder="Enter Password" type="password" id="password" name="password" required minlength="8">
                     <input type="submit" value="Log In" id="logIn" name="logIn">
                 </form>
-                <p>Don't have an account? <a href="./signUp.php">Register</a></p>
+                <p>Don't have an account? <a href="Signin.php">Register</a></p>
             </div>
         </div>
     </div>
+    <script src="Validation.js"></script>
 <!---------------------------------KRYHET content---------------------------------------->
 
   <!----------------------------------------F O O T E R------------------------------------------>
