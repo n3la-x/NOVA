@@ -1,9 +1,9 @@
 <?php
-// Enable error reporting for debugging
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Database connection (replace with your credentials)
+
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -15,7 +15,6 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Handle form submission
 if (isset($_POST["submit"])) {
     $fullName = $_POST["fullname"];
     $email = $_POST["email"];
@@ -27,7 +26,6 @@ if (isset($_POST["submit"])) {
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     $errors = array();
 
-    // Validation
     if (empty($fullName) || empty($email) || empty($username) || empty($password) || empty($confirm_password)) {
         array_push($errors, "All fields are required");
     }
