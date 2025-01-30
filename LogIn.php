@@ -142,14 +142,129 @@ if (isset($_POST["login"])) {
     </style>
 </head>
 <body>
-    <div class="loginPart">
-        <h1>Login</h1>
-        <form action="" method="post">
-            <input type="email" placeholder="Enter email" id="email" name="email" required>
-            <input type="password" placeholder="Enter password" id="password" name="password" required>
-            <input type="submit" value="Login" id="login" name="login">
-        </form>
-        <p>Don't have an account? <a href="Signin.php">Sign up</a></p>
+<div class="top-container">
+  <div class="navbar">
+    <div class="navbar-left">
+      <h2 style="  font-family: 'Tangerine', serif; font-size: 40px;">Book wellnes services !</h2>
+    </div>
+    <div class="navbar-right">
+      <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+      <a href="#"><i class="bi bi-cloud-arrow-down-fill"></i> Download the app</a>
+      <a href="#" onclick="openPopup()"><i class="bi bi-globe" ></i> Select Language</a>
+    </div>
+  </div>
+</div>
+<!-----------navbar sidebar------------>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
+  <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
+  <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+  <a href="ContactUs.html"><i class="bi bi-telephone"></i>Contact us</a>
+  <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
+  <a href="#"><i class="bi bi-hourglass-split"></i>Last minute appoitment</a>
+  <a href="Dashboard.html">Dashboard</a>
+  
+
+</div>
+
+
+<!-- -------------------------Pop-up form--------------- -->
+<div id="popup" class="popup-overlay">
+  <div class="popup-content">
+    <h3 style="color:#503C3C;">Select Your Language</h3>
+    <form>
+      <label for="language" style="color: #493628;">Choose a language:</label>
+      <select id="language" name="language">
+        <option value="english">English</option>
+        <option value="spanish">Spanish</option>
+        <option value="french">French</option>
+        <option value="german">German</option>
+        <option value="chinese">Chinese</option>
+      </select>
+      <br><br>
+      <input type="submit" class="submit-btn" value="Submit">
+    </form>
+   
+  </div>
+</div>
+<div class="header" id="myHeader">
+    <h2 style="margin-left: 20px;">Nova</h2>
+    <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
+</div>
+<!---------------------------------CONTENT------------------------------------------->
+<div class="section">
+        <div class="mainBox">
+            <?php
+            require_once "N/database.php";
+
+            if (isset($_POST["logIn"])) {
+                $email = $_POST["email"];
+                $password = $_POST["password"];
+                $sql = "SELECT * FROM users WHERE email ='$email'";
+                $result = mysqli_query($conn, $sql);
+                $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+                if ($user) {
+                    if (password_verify($password, $user["password"])) {
+                        if($user['role'] == 'admin'){
+                            header("Location:  dashboard.php");
+                        }else{
+                            header("Location:  Nova.html");
+                        }
+                    } else {
+                        echo "<div class='alert alert-danger'>Password does not match</div>";
+                    }
+                } else {
+                    echo "<div class='alert alert-danger'>Email does not match</div>";
+                }
+            }
+            ?>
+            <h1>Nova</h1>
+            <div class="logInPart">
+                <p>Log in to your account:</p>
+                <form class="logInForm" action="LogIn.php" method="post">
+                    <input placeholder="Enter Email" type="email" id="email" name="email" required minlength="8">
+                    <input placeholder="Enter Password" type="password" id="password" name="password" required minlength="8">
+                    <input type="submit" value="Log In" id="logIn" name="logIn">
+                </form>
+                <p>Don't have an account? <a href="Signin.php">Register</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="Validation.js"></script>
+<!---------------------------------KRYHET content---------------------------------------->
+
+  <!----------------------------------------F O O T E R------------------------------------------>
+<div class="footer-container">
+  <footer>
+    <a href="aboutus.html" class="footer-section-link">
+      <h2>About Us</h2>
+      <p>We connect you to the best local services, making booking easy and hassle-free.</p>
+    </a>
+    <div class="footer-section-link" style="color: white;" >
+    <a href="ContactUs.html" style="color: white;" >
+      <h2 style="color: white;">Contact Us</h2>
+      <p style="color: white;">Email: support@nova.com</p>
+      <p style="color: white;">Phone: +1 234 567 890</p>
+    </a>
+    </div>
+    <div class="footer-section">
+      <h2>Download the App</h2>
+      <div class="app-links">
+        <a href="#" class="app-store">App Store</a>
+        <a href="#" class="play-store">Google Play</a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <h2>Follow Us</h2>
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="bi bi-facebook"></i>Facebook</a>
+        <a href="#" class="social-icon"><i class="bi bi-instagram"></i>Instagram</a>
+        <a href="#" class="social-icon"><i class="bi bi-twitter"></i>Twitter</a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <button id="leave-review-btn">Leave a Review</button>
     </div>
 </body>
 </html>
