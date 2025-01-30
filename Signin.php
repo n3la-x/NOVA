@@ -3,16 +3,16 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Database connection (using your provided credentials)
-$servername = "localhost";
+// Database connection (replace with your credentials)
+$host = "localhost";
 $username = "root";
 $password = "";
-$dbname = "nova";
+$database = "nova";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($host, $username, $password, $database);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Handle form submission
@@ -43,14 +43,11 @@ if (isset($_POST["submit"])) {
 
     // Check if email already exists
     $sql = "SELECT * FROM users WHERE email = ?";
-    $stmt = $conn->prepare($sql);
-    if (!$stmt) {
-        die("Prepare failed: " . $conn->error);
-    }
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $rowCount = $result->num_rows;
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $rowCount = mysqli_num_rows($result);
 
     if ($rowCount > 0) {
         array_push($errors, "Email already exists!");
@@ -63,23 +60,20 @@ if (isset($_POST["submit"])) {
         }
     } else {
         $sql = "INSERT INTO users (full_name, email, username, password, role) VALUES (?, ?, ?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        if (!$stmt) {
-            die("Prepare failed: " . $conn->error);
-        }
-        $stmt->bind_param("sssss", $fullName, $email, $username, $passwordHash, $role);
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "sssss", $fullName, $email, $username, $passwordHash, $role);
 
-        if ($stmt->execute()) {
+        if (mysqli_stmt_execute($stmt)) {
             // Redirect based on role
             if ($role === "admin") {
-                header("Location: admin_dashboard.php"); // Redirect to admin dashboard
+                header("Location:   dashboard.php"); // Redirect to admin dashboard
                 exit();
             } elseif ($role === "user") {
-                header("Location: user_dashboard.php"); // Redirect to user dashboard
+                header("Location: Nova.html"); // Redirect to user dashboard
                 exit();
             }
         } else {
-            die("Execute failed: " . $stmt->error);
+            die("Something went wrong: " . mysqli_error($conn));
         }
     }
 }
