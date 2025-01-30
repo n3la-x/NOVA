@@ -1,177 +1,127 @@
+<?php
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Database connection (replace with your credentials)
+$host = "localhost";
+$username = "root";
+$password = "";
+$database = "nova";
+
+$conn = mysqli_connect($host, $username, $password, $database);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Handle delete user request
+if (isset($_GET['delete'])) {
+    $id = $_GET['delete'];
+    $sql = "DELETE FROM users WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    if (mysqli_stmt_execute($stmt)) {
+        echo "<div class='alert alert-success'>User deleted successfully!</div>";
+    } else {
+        echo "<div class='alert alert-danger'>Error deleting user: " . mysqli_error($conn) . "</div>";
+    }
+}
+
+// Fetch all users
+$sql = "SELECT * FROM users";
+$result = mysqli_query($conn, $sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #7f2549, #f0c7d3);
-            color: #fff;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .dashboard-header {
-            background: #7f2549;
-            color: #fff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .dashboard-header h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-
-        .dashboard-header a {
-            color: #fff;
-            background: #f0c7d3;
-            padding: 5px 45px;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .dashboard-header a:hover {
-            background: #c98aa3;
-        }
-
-        .dashboard-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .sidebar {
-            background: #7f2549;
-            width: 250px;
             padding: 20px;
-            border-radius: 10px 0 0 10px;
-            min-height: 100vh;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
         }
 
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .sidebar ul li {
-            margin: 15px 0;
-        }
-
-        .sidebar ul li a {
-            color: #f0c7d3;
-            font-weight: bold;
-            padding: 10px 15px;
-            display: block;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .sidebar ul li a:hover {
-            background: #f0c7d3;
-            color: #fff;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 20px;
-            background: #f0c7d3;
-            color: #000;
-            border-radius: 0 10px 10px 0;
-            text-align: center;
-        }
-
-        .stats {
-            margin-bottom: 30px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            justify-items: center; 
-            background: #7f2549;
-        }
-
-        .stats p {
-            background: #f9f9f9;
-            color: #7f2549;
-            padding: 15px;
-            border-radius: 10px;
+        table {
             width: 100%;
-            max-width: 200px;
-            text-align: center;
-            font-size: 16px;
-            
+            border-collapse: collapse;
+            margin-bottom: 20px;
         }
 
-        .recent-activity {
-            margin-top: 20px;
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
         }
 
-        .recent-activity ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            
+        table th {
+            background-color: #f4f4f4;
         }
 
-        .recent-activity li {
-            background: #f9f9f9;
-            margin: 10px auto;
-            padding: 15px;
+        .actions button {
+            padding: 5px 10px;
+            margin-right: 5px;
+        }
+
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
             border-radius: 5px;
-            text-align: center;
-            transition: background 0.3s ease;
-            max-width: 500px;
         }
 
-        .recent-activity li:hover {
-            background: #7f2549;
+        .alert-success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .alert-danger {
+            background-color: #ffebee;
+            color: #c62828;
         }
     </style>
 </head>
 <body>
-    <div class="dashboard">
-        <header class="dashboard-header">
-            <h1><a href="index.html">Bliss</a></h1>
-            <span>Admin Dashboard <a href="logout.php">Logout</a></span>
-        </header>
+    <div class="container">
+        <h1>User Dashboard</h1>
 
-        <div class="dashboard-container">
-            <aside class="sidebar">
-                <ul>
-                    <li><a href="view_users.php">View Users</a></li>
-                    <li><a href="add_product.php">Add Product</a></li>
-                    <li><a href="products.php">Products</a></li>
-                    <li><a href="purchases.php">Purchases</a></li>
-                    <li><a href="contact_us.php">View Contact Us</a></li>
-                </ul>
-            </aside>
-
-            <main class="main-content">
-                <h2>Dashboard</h2>
-                <div class="stats"> <p><a href="view_users.php" style=>Total Users</a></p>
-                    <p>Total Products</p>
-                 
-                </div>
-
-                <div class="recent-activity">
-                    <h3>Recent Comments</h3>
-                    <ul>
-                        <li>No comments yet.</li>
-                    </ul>
-                </div>
-            </main>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                <tr>
+                    <td><?= $row['id'] ?></td>
+                    <td><?= htmlspecialchars($row['full_name']) ?></td>
+                    <td><?= htmlspecialchars($row['email']) ?></td>
+                    <td><?= htmlspecialchars($row['username']) ?></td>
+                    <td><?= htmlspecialchars($row['role']) ?></td>
+                    <td class="actions">
+                        <a href="dashboard.php?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?');">
+                            <button style="background-color: #e74c3c; color: white; border: none;">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
