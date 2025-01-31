@@ -23,8 +23,65 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=DM+Serif+Text:ital@0;1&family=Pangolin&family=Parkinsans:wght@300..800&family=Poiret+One&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Tangerine:wght@400;700&display=swap" rel="stylesheet"><!--font link end-->
    <title> Nova</title>
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function changeContent(title, content) {
+            document.querySelector(".content h2").textContent = title;
+            document.querySelector(".content p").textContent = content;
+        }
+        
+        document.querySelectorAll("aside ul li a").forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                
+                let pageContent = {
+                    "About Nova": "Nova is the world’s leading marketplace for beauty and wellness services, connecting millions of clients with top salons, spas, and professionals. Designed to simplify and enhance the booking experience, Nova offers an intuitive platform that allows businesses to manage appointments, payments, and customer relationships effortlessly. Our innovative software is completely subscription-free, providing businesses with powerful tools such as automated reminders, online payments, and marketing solutions to help them grow. Clients can browse, book, and enjoy a seamless beauty and wellness experience through Nova is easy-to-use app and website. With a commitment to innovation and excellence, Nova continues to redefine the beauty and wellness industry, making it more accessible, efficient, and rewarding for everyone.",
+                    "Exceptional Customer Experience": "Nova goes above and beyond to ensure that every customer feels valued and supported. The brand’s customer experience is built on: Personalized Service: From tailored product recommendations to responsive customer support, Nova makes every interaction feel personal.Hassle-Free Shopping: The website’s intuitive design, easy navigation, and secure checkout process make shopping with Nova a breeze.Post-Purchase Support: Nova offers comprehensive warranties, easy returns, and detailed product guides to ensure customer satisfaction long after the purchase.",
+                    "Community and Connection": "Nova isn’t just a brand—it’s a community. The company fosters a sense of belonging by:Engaging Content: Through its blog, social media, and newsletters, Nova shares inspiring stories, tips, and tutorials that resonate with its audience.User-Generated Content: Nova encourages customers to share their experiences and creations, creating a vibrant and interactive community.Social Responsibility: Nova actively supports causes and initiatives that align with its values, such as environmental conservation and education.",
+                    "Terms & Conditions": "Nova's Terms of Service outline the terms and conditions for using their platform, including booking services and making purchases. These terms cover aspects such as the use of the Nova Platform, the relationship between users and service providers (Partners), payment processes, and user responsibilities. It's important to review these terms to understand your rights and obligations when using Nova's services.Additionally, Nova's Terms of Use provide guidelines for accessing and using their website and applications. These terms include information on user accounts, privacy policies, and acceptable use of the site. Familiarizing yourself with these terms can help ensure a smooth experience when interacting with Nova's online platforms. For Partners, Nova offers specific Partner Terms of Business, detailing the responsibilities and expectations for businesses using the Nova platform to offer their services. These terms cover areas such as service provision, payment processing, and the use of Nova's business management software. Partners should review these terms to understand their obligations and the services provided by Nova.",
+                    "Transparency and Trust": "Nova believes in building trust through transparency. The brand is open about its processes, values, and goals, which helps customers feel confident in their choices: Behind-the-Scenes Insights: Nova shares the story behind its products, from design inspiration to manufacturing processes.Customer Reviews: Honest reviews and testimonials are prominently featured, allowing potential buyers to make informed decisions.Clear Policies: Nova’s shipping, return, and privacy policies are straightforward and easy to understand.",
+                    "A Brand That Inspires":"Nova is more than just a provider of products—it’s a source of inspiration. The brand’s messaging and visuals are designed to motivate customers to live their best lives:Empowering Messaging: Nova’s tagline, “Elevate Your Everyday,” reflects its mission to help customers enhance their daily routines.Lifestyle Integration: Nova’s products are designed to seamlessly integrate into modern lifestyles, making them both practical and aspirational.Storytelling: Through its website, blog, and social media, Nova shares stories of innovation, creativity, and transformation that resonate with its audience."};
+                let text = event.target.textContent;
+                changeContent(text, pageContent[text] || "Content not available");
+            });
+        });
+    });
+</script>
 <style>
-  
+
+
+main {
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+            align-items: flex-start;
+            margin-top: 5%;
+        }
+        aside {
+            width: 20%;
+            background-color: #BFBFBF;
+            padding: 40px;
+            text-align: left;
+        }
+        aside ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        aside ul li {
+            margin-bottom: 10px;
+        }
+        .content {
+            width: 80%;
+            padding: 20px;
+            text-align: center;
+        }
+        .content h2 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
 body {
   font-family:'Poiret One';
   margin: 0;
@@ -61,11 +118,6 @@ body {
   }
 }
 
-.content {
-  padding-top: 60px;
-  display: flex;
-  justify-content: center;
-}
 
 .sticky {
   position: fixed;
@@ -191,22 +243,6 @@ body {
 
 }
 
-/*----------------------hr line----------------------------*/
-        h4{
-          display: flex;
-            flex-direction: row;
-            color:#E1ACAC;
-            margin: 100px 0 0px 0;
-            font-family:'Charm';
-        }
-        
-        h4:before,
-        h4:after {
-            content: "";
-            flex: 1 1;
-            border-bottom: 1px solid #E1ACAC;
-            margin: 20px 5px;
-        }
  /*-------------------side bar---------------*/
   .sidebar {
   height: 100%;
@@ -518,62 +554,6 @@ font-family: 'Roboto Flex';
   width: 100%;
   flex-shrink: 0;
 }
-/*.................-------about uss--------.................*/
-.container-aboutus {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Main Layout Styling */
-        .container-ab {
-            width: 500px;
-            height: 300px;
-            display: flex;
-            border: 2px solid #333;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: background-color 0.5s;
-        }
-
-        /* Menu Styling */
-        .menu {
-            width: 150px;
-            background-color: #f0f0f0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border-right: 2px solid #333;
-        }
-
-        .menu a {
-            color: black;
-            text-decoration: none;
-            margin: 10px;
-            padding: 10px;
-            border-radius: 4px;
-            background-color: white;
-            transition: background-color 0.3s;
-            text-align: center;
-            font-size: 16px;
-        }
-
-        .menu a:hover {
-            background-color: #ddd;
-        }
-
-        /* Content Area Styling */
-        .content {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: black;
-        }
 </style>
 </head>
 <body>
@@ -625,19 +605,37 @@ font-family: 'Roboto Flex';
     <h2 ><a href="Nova.html">Nova</a></h2>
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
-<!--........................CONTENT..........................-->
-<div class="container-aboutus">
-  <div class="container-ab" id="color-container">
-      <div class="menu">
-          <a href="#red" data-color="red">Go to Red</a>
-          <a href="#blue" data-color="blue">Go to Blue</a>
-          <a href="#green" data-color="green">Go to Green</a>
-          <a href="#yellow" data-color="yellow">Go to Yellow</a>
-          <a href="#purple" data-color="purple">Go to Purple</a>
-      </div>
-      <div class="content" id="color-text">Select a Color</div>
-  </div>
-</div>
+<main>
+  <aside>
+      <ul>
+          <li><a href="#" style="color:white ";>About Nova</a></li>
+          <li><a href="#" style="color:white" >Exceptional Customer Experience</a></li>
+          <li><a href="#" style="color:white">Community and Connection</a></li>
+          <li><a href="#" style="color:white">Terms & Conditions</a></li>
+          <li><a href="#" style="color:white">Transparency and Trust</a></li>
+          <li><a href="#" style="color:white">A Brand That Inspires</a></li>
+      </ul>
+  </aside>
+  <section class="content">
+      <h2>About Nova</h2>
+      <p>Nova is the world’s leading marketplace for beauty and wellness services, connecting millions of clients with top salons,
+         spas, and professionals. Designed to simplify and enhance the booking experience,
+         Nova offers an intuitive platform that allows businesses to manage appointments,
+        payments, and customer relationships effortlessly.
+
+        Our innovative software is completely subscription-free, providing businesses with powerful tools such as automated reminders, 
+        online payments, and marketing solutions to help them grow. Clients can browse, book, and enjoy a seamless beauty and wellness experience 
+        through Nova is easy-to-use app and website.
+        
+        With a commitment to innovation and excellence, Nova continues to redefine the beauty and wellness industry,
+        making it more accessible, efficient, and rewarding for everyone.
+        
+        </p>
+
+  </section>
+</main>
+
+
 <!--------CAROUSELL------>
 <div class="carousel-parent-container">
   <div class="carousel-container">
@@ -713,23 +711,7 @@ font-family: 'Roboto Flex';
 
 
 <script>
-  // .....................................C O N T E N T.............................................
-  document.querySelectorAll('.menu a').forEach(anchor => {
-            anchor.addEventListener('click', function(event) {
-                event.preventDefault();
-
-                // Get color from data attribute
-                const color = this.getAttribute('data-color');
-
-                // Update container background and text
-                const container = document.getElementById('color-container');
-                const colorText = document.getElementById('color-text');
-
-                container.style.backgroundColor = color;
-                colorText.textContent = `This is ${color.charAt(0).toUpperCase() + color.slice(1)}`;
-            });
-        });
-
+ 
   //------------------about...........................................................................
   const carouselWrapper = document.querySelector('.carousel-wrapper');
 
