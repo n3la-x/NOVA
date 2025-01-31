@@ -1,44 +1,9 @@
-<?php
-// Enable error reporting for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Database connection (replace with your credentials)
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "nova";
-
-$conn = mysqli_connect($host, $username, $password, $database);
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-// Handle delete user request
-if (isset($_GET['delete'])) {
-    $id = $_GET['delete'];
-    $sql = "DELETE FROM users WHERE id = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "i", $id);
-    if (mysqli_stmt_execute($stmt)) {
-        echo "<div class='alert alert-success'>User deleted successfully!</div>";
-    } else {
-        echo "<div class='alert alert-danger'>Error deleting user: " . mysqli_error($conn) . "</div>";
-    }
-}
-
-// Fetch all users
-$sql = "SELECT * FROM users";
-$result = mysqli_query($conn, $sql);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -59,16 +24,23 @@ $result = mysqli_query($conn, $sql);
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Pangolin&family=Parkinsans:wght@300..800&family=Poiret+One&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 <!--font link end-->
-    <title>Dashboard</title>
-    <style>
+<title>Add Studio</title>
+<style>
   
 body {
   font-family:'Poiret One';
   margin: 0;
   background-color: #e5e1dab7;
-
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+.main-content {
+    margin-top: 60px; /* Adjust based on header height */
+    margin-bottom: 60px; /* Adjust based on footer height */
+}
 .top-container {
   background-color:rgb(229, 225, 218);
   padding: 30px;
@@ -284,50 +256,6 @@ body {
       color: rgb(229, 225, 218);
       box-shadow: 0px 4px 8px rgb(229, 225, 218);
     }
-    /*---------------------------------------Content------------------------- */
-   
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        table th, table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        table th {
-            background-color: #f4f4f4;
-        }
-
-        .actions button {
-            padding: 5px 10px;
-            margin-right: 5px;
-        }
-
-        .alert {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-
-        .alert-success {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-        }
-
-        .alert-danger {
-            background-color: #ffebee;
-            color: #c62828;
-        }
 
   
 /*---------------------------------------------------F O O T E R-------------------------------------*/
@@ -339,6 +267,11 @@ body {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -468,11 +401,11 @@ footer {
   color:  rgb(168, 124, 124);
   font-style: italic;
 }
- 
 
-      
+       
     </style>
 </head>
+<body>
 <body>
 <div class="top-container">
   <div class="navbar">
@@ -523,39 +456,29 @@ footer {
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!---------------------------------CONTENT------------------------------------------->
+
 <div class="container">
-        <h1>User Dashboard</h1>
+        <h1>Add Product</h1>
+        <form method="POST" action="add_product.php" enctype="multipart/form-data">
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" name="name" required>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Username</th>
-                    <th>Role</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                <tr>
-                    <td><?= $row['id'] ?></td>
-                    <td><?= htmlspecialchars($row['full_name']) ?></td>
-                    <td><?= htmlspecialchars($row['email']) ?></td>
-                    <td><?= htmlspecialchars($row['username']) ?></td>
-                    <td><?= htmlspecialchars($row['role']) ?></td>
-                    <td class="actions">
-                        <a href="dashboard.php?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?');">
-                            <button style="background-color: #e74c3c; color: white; border: none;">Delete</button>
-                        </a>
-                    </td>
-                </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+
+            <label for="image">Product Image:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Add Product</button>
+        </form>
     </div>
-
+    <button type="submit" style="font-size: 20px;">Submit</button>
+    </form>
+  </div>
+</div>
 <!---------------------------------KRYHET content---------------------------------------->
 
   <!----------------------------------------F O O T E R------------------------------------------>
@@ -614,12 +537,8 @@ footer {
       <label for="review">Your Review:</label>
       <textarea id="review" name="review" rows="4" required></textarea>
 
-      <button type="submit" style="font-size: 20px;">Submit</button>
-    </form>
-  </div>
-</div>
-  
-    <script>
+
+<script>
   /*---------------------------------F O O T E R------------------------------------------------*/
   // Modal functionality
 const leaveReviewBtn = document.getElementById('leave-review-btn');
@@ -748,4 +667,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 </body>
-</html>
+</html> 
