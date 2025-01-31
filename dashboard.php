@@ -284,6 +284,50 @@ body {
       color: rgb(229, 225, 218);
       box-shadow: 0px 4px 8px rgb(229, 225, 218);
     }
+    /*---------------------------------------Content------------------------- */
+   
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f4f4f4;
+        }
+
+        .actions button {
+            padding: 5px 10px;
+            margin-right: 5px;
+        }
+
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .alert-success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .alert-danger {
+            background-color: #ffebee;
+            color: #c62828;
+        }
 
   
 /*---------------------------------------------------F O O T E R-------------------------------------*/
@@ -425,54 +469,8 @@ footer {
   font-style: italic;
 }
  
-/*---------------------------------------Content------------------------- */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        table th, table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        table th {
-            background-color: #f4f4f4;
-        }
-
-        .actions button {
-            padding: 5px 10px;
-            margin-right: 5px;
-        }
-
-        .alert {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-
-        .alert-success {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-        }
-
-        .alert-danger {
-            background-color: #ffebee;
-            color: #c62828;
-        }
+      
     </style>
 </head>
 <body>
@@ -557,6 +555,7 @@ footer {
             </tbody>
         </table>
     </div>
+
 <!---------------------------------KRYHET content---------------------------------------->
 
   <!----------------------------------------F O O T E R------------------------------------------>
