@@ -456,10 +456,10 @@ footer {
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!---------------------------------CONTENT------------------------------------------->
-
+<br>
 <div class="container">
         <h1>Add Product</h1>
-        <form method="POST" action="add_product.php" enctype="multipart/form-data">
+        <form method="POST" action="add_studio.php" enctype="multipart/form-data">
             <label for="name">Product Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -475,7 +475,6 @@ footer {
             <button type="submit">Add Product</button>
         </form>
     </div>
-    <button type="submit" style="font-size: 20px;">Submit</button>
     </form>
   </div>
 </div>
