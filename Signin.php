@@ -1,15 +1,6 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "nova";
-
-$conn = mysqli_connect($host, $username, $password, $database);
+require_once 'N/database.php';
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -39,7 +30,7 @@ if (isset($_POST["submit"])) {
         array_push($errors, "Password does not match");
     }
 
-    // Check if email already exists
+    // a ekziston email
     $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $email);
@@ -51,7 +42,7 @@ if (isset($_POST["submit"])) {
         array_push($errors, "Email already exists!");
     }
 
-    // Insert data if no errors
+    // shtini te dhanat nese ska errore
     if (count($errors) > 0) {
         foreach ($errors as $error) {
             echo "<div class='alert alert-danger'>$error</div>";
@@ -62,12 +53,12 @@ if (isset($_POST["submit"])) {
         mysqli_stmt_bind_param($stmt, "sssss", $fullName, $email, $username, $passwordHash, $role);
 
         if (mysqli_stmt_execute($stmt)) {
-            // Redirect based on role
+            // drejtimi ne faqe sipas rolev
             if ($role === "admin") {
-                header("Location:   dashboard.php"); // Redirect to admin dashboard
+                header("Location:   dashboard.php"); 
                 exit();
             } elseif ($role === "user") {
-                header("Location: Nova.html"); // Redirect to user dashboard
+                header("Location: Nova.html"); 
                 exit();
             }
         } else {
