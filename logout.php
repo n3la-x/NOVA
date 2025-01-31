@@ -3,6 +3,6 @@ session_start();
 session_unset();  
 session_destroy();
 
-header("Location: NOVA/Signin.php"); 
+header("Location:  /GitHub/NOVA/Signin.php"); 
 exit();
 ?>
