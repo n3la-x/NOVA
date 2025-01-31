@@ -1,8 +1,8 @@
 <?php
 
-require_once 'database.php';
+require_once 'N/database.php';
 
-$sql = "SELECT id, name, email, message FROM ContactUs ORDER BY id DESC";
+$sql = "SELECT name, email, message FROM contactUs ORDER BY id DESC";
 $result = $conn->query($sql);
 
 ?>
@@ -82,7 +82,6 @@ $result = $conn->query($sql);
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Message</th>
@@ -91,7 +90,6 @@ $result = $conn->query($sql);
                 <tbody>
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td><?= $row['id'] ?></td>
                             <td><?= htmlspecialchars($row['name']) ?></td>
                             <td><?= htmlspecialchars($row['email']) ?></td>
                             <td><?= htmlspecialchars($row['message']) ?></td>

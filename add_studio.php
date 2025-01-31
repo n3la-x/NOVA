@@ -423,10 +423,10 @@ footer {
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
   <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
-  <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
-  <a href="ContactUs.html"><i class="bi bi-telephone"></i>Contact us</a>
+  <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+  <a href="contactUs.php"><i class="bi bi-telephone"></i>Contact us</a>
   <a href="SpecialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
-  <a href="Dashboard.html">Dashboard</a>
+ 
   
 
 </div>
@@ -456,15 +456,15 @@ footer {
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!---------------------------------CONTENT------------------------------------------->
-
+<br>
 <div class="container">
         <h1>Add Product</h1>
-        <form method="POST" action="add_product.php" enctype="multipart/form-data">
+        <form method="POST" action="add_studio.php" enctype="multipart/form-data">
             <label for="name">Product Name:</label>
             <input type="text" id="name" name="name" required>
 
             <label for="price">Price:</label>
-            <input type="number" id="price" name="price" step="0.01" required>
+            <input type="number" id="price" name="price" step="1" required>
 
             <label for="description">Description:</label>
             <textarea id="description" name="description" rows="5" required></textarea>
@@ -475,7 +475,6 @@ footer {
             <button type="submit">Add Product</button>
         </form>
     </div>
-    <button type="submit" style="font-size: 20px;">Submit</button>
     </form>
   </div>
 </div>
