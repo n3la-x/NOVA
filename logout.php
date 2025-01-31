@@ -1,7 +1,8 @@
 <?php
 session_start();
-session_unset();
+session_unset();  
 session_destroy();
-header("Location: Signin.php");
+
+header("Location: NOVA/Signin.php"); 
 exit();
 ?>

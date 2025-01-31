@@ -1,4 +1,5 @@
 <?php
+
 // Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -86,7 +87,7 @@ body {
 @media (max-width: 768px) {
 
   .content {
-    padding-top: 80px; /* Match the new header height */
+    padding-top: 80px; 
   }
 }
 
@@ -254,6 +255,17 @@ body {
   right: 10px;
   font-size: 36px;
   margin-left: 30px;
+}
+.sidebar .logout-btn {
+  margin-top: 200%; 
+  background-color: rgb(168, 124, 124); 
+  color: white; 
+  border-radius: 5px; 
+  transition: background-color 0.3s ease; 
+}
+
+.sidebar .logout-btn:hover {
+  background-color: #82828220; 
 }
 
 
@@ -468,9 +480,10 @@ footer {
   color:  rgb(168, 124, 124);
   font-style: italic;
 }
- 
+.spacer {
+  flex-grow: 5; /* Takes up remaining space */
+}
 
-      
     </style>
 </head>
 <body>
@@ -490,10 +503,10 @@ footer {
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
   <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
-  <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
-  <a href="contactUs.php"><i class="bi bi-telephone"></i>Contact us</a>
+  <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+  <a href="ContactUs.html"><i class="bi bi-telephone"></i>Contact us</a>
   <a href="SpecialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
- 
+  <a href="Dashboard.html">Dashboard</a>
   
 
 </div>

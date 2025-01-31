@@ -575,7 +575,7 @@ font-family: 'Roboto Flex';
   <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
   <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
   <a href="ContactUs.html"><i class="bi bi-telephone"></i>Contact us</a>
-  <a href="SpecialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
+  <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
   <a href="Dashboard.html">Dashboard</a>
   
 
@@ -711,7 +711,23 @@ font-family: 'Roboto Flex';
 
 
 <script>
- 
+  // .....................................C O N T E N T.............................................
+  document.querySelectorAll('.menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Get color from data attribute
+                const color = this.getAttribute('data-color');
+
+                // Update container background and text
+                const container = document.getElementById('color-container');
+                const colorText = document.getElementById('color-text');
+
+                container.style.backgroundColor = color;
+                colorText.textContent = `This is ${color.charAt(0).toUpperCase() + color.slice(1)}`;
+            });
+        });
+
   //------------------about...........................................................................
   const carouselWrapper = document.querySelector('.carousel-wrapper');
 
