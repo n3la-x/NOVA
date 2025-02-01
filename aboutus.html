@@ -244,7 +244,7 @@ body {
 }
 
  /*-------------------side bar---------------*/
-  .sidebar {
+ .sidebar {
   height: 100%;
   width: 0;
   position: fixed;
@@ -279,6 +279,17 @@ body {
   right: 10px;
   font-size: 36px;
   margin-left: 30px;
+}
+.sidebar .logout-btn {
+  margin-top: 200%; 
+  background-color: rgb(168, 124, 124); 
+  color: white; 
+  border-radius: 5px; 
+  transition: background-color 0.3s ease; 
+}
+
+.sidebar .logout-btn:hover {
+  background-color: #82828220; 
 }
 
 
@@ -577,7 +588,8 @@ font-family: 'Roboto Flex';
   <a href="ContactUs.html"><i class="bi bi-telephone"></i>Contact us</a>
   <a href="SpeacialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
   <a href="Dashboard.html">Dashboard</a>
-  
+  <div class="spacer"></div>
+  <a class="logout-btn" href="logout.php"><i class="bi bi-box-arrow-in-left"></i>Logout</a>
 
 </div>
 

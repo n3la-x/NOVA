@@ -191,7 +191,7 @@ body {
 }
 
  /*-------------------side bar---------------*/
-  .sidebar {
+ .sidebar {
   height: 100%;
   width: 0;
   position: fixed;
@@ -227,6 +227,17 @@ body {
   font-size: 36px;
   margin-left: 30px;
 }
+.sidebar .logout-btn {
+  margin-top: 200%; 
+  background-color: rgb(168, 124, 124); 
+  color: white; 
+  border-radius: 5px; 
+  transition: background-color 0.3s ease; 
+}
+
+.sidebar .logout-btn:hover {
+  background-color: #82828220; 
+}
 
 
 
@@ -256,7 +267,6 @@ body {
       color: rgb(229, 225, 218);
       box-shadow: 0px 4px 8px rgb(229, 225, 218);
     }
-
   
 /*---------------------------------------------------F O O T E R-------------------------------------*/
 .footer-container {
@@ -426,6 +436,8 @@ footer {
   <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
   <a href="contactUs.php"><i class="bi bi-telephone"></i>Contact us</a>
   <a href="SpecialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
+  <div class="spacer"></div>
+  <a class="logout-btn" href="logout.php"><i class="bi bi-box-arrow-in-left"></i>Logout</a>
  
   
 
