@@ -602,17 +602,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const specificServiceDropdown = document.getElementById("specificService");
   const bookingForm = document.getElementById("bookingForm");
 
-  const options = {
-    nails: ["Rina Zaiti", "Verona K Nails", "Ibc","Cherry Blossom","Ereza's Studio","Serpent Nails","Beautifly Studio","Blerta's Beauty","Drina Nails"],
-    facial: ["Fresh Face Clinic", "Glow Skin Spa", "Revive Facial Center"],
-    hair: ["Elite Hair Salon", "Style Studio", "Chic Hair Lounge"],
-  };
-  serviceDropdown.addEventListener("change", () => {
+  // Fetch studios from the database
+  async function fetchStudios(serviceType) {
+    const response = await fetch(`get_studios.php?service_type=${serviceType}`);
+    const studios = await response.json();
+    return studios;
+  }
+
+  serviceDropdown.addEventListener("change", async () => {
     const selectedService = serviceDropdown.value;
-    if (options[selectedService]) {
+    if (selectedService) {
       specificOptionsDiv.classList.remove("hidden");
-      specificServiceDropdown.innerHTML = options[selectedService]
-        .map((option) => `<option value="${option}">${option}</option>`)
+      const studios = await fetchStudios(selectedService);
+      specificServiceDropdown.innerHTML = studios
+        .map((studio) => `<option value="${studio.name}">${studio.name}</option>`)
         .join("");
     } else {
       specificOptionsDiv.classList.add("hidden");
@@ -621,7 +624,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   bookingForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
     const formData = new FormData(bookingForm);
     const data = {
       service: formData.get("service"),
@@ -632,18 +634,11 @@ document.addEventListener("DOMContentLoaded", () => {
       date: formData.get("date"),
       time: formData.get("time"),
     };
-
-  
-    alert(
-      `Booking Confirmed!\nService: ${data.service}\nStudio/Clinic/Salon: ${data.specificService}\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nDate: ${data.date}\nTime: ${data.time}`
-    );
-
-
+    alert(`Booking Confirmed!\nService: ${data.service}\nStudio/Clinic/Salon: ${data.specificService}\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nDate: ${data.date}\nTime: ${data.time}`);
     bookingForm.reset();
     specificOptionsDiv.classList.add("hidden");
   });
 });
-
   /*---------------------------------F O O T E R------------------------------------------------*/
   // Modal functionality
 const leaveReviewBtn = document.getElementById('leave-review-btn');
