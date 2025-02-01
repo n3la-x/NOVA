@@ -27,21 +27,21 @@ if (isset($_POST["submit"])) {
         array_push($errors, "No user found with that email or username");
     } else {
         // Fetch user data
-        $user = mysqli_fetch_assoc($result);
+        $users = mysqli_fetch_assoc($result);
         // Verify password
-        if (!password_verify($password, $user["password"])) {
+        if (!password_verify($password, $users["password"])) {
             array_push($errors, "Incorrect password");
         } else {
             // Successful login, start session and redirect
             session_start();
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'];
+            $_SESSION['id'] = $users['id'];
+            $_SESSION['username'] = $users['username'];
+            $_SESSION['role'] = $users['role'];
 
-            if ($user['role'] === "admin") {
-                header("Location: Dashboard.php");
+            if ($users['role'] === "admin") {
+                header("Location: ../dashboard.php");
                 exit();
-            } elseif ($user['role'] === "user") {
+            } elseif ($users['role'] === "user") {
                 header("Location: Nova.html");
                 exit();
             }
