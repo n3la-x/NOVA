@@ -1,10 +1,12 @@
 <?php
 
-// Enable error reporting for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+session_start();
 
-// Database connection (replace with your credentials)
+if (!isset($_SESSION['user'])) {
+    header("Location: LogIn.php");
+    exit();
+}
+
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -29,7 +31,6 @@ if (isset($_GET['delete'])) {
     }
 }
 
-// Fetch all users
 $sql = "SELECT * FROM users";
 $result = mysqli_query($conn, $sql);
 ?>
@@ -493,7 +494,7 @@ footer {
       <h2 style="  font-family: 'Tangerine', serif; font-size: 40px;">Book wellnes services !</h2>
     </div>
     <div class="navbar-right">
-      <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+      <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
       <a href="#"><i class="bi bi-cloud-arrow-down-fill"></i> Download the app</a>
       <a href="#" onclick="openPopup()"><i class="bi bi-globe" ></i> Select Language</a>
     </div>
@@ -503,7 +504,7 @@ footer {
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
   <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
-  <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+  <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
   <a href="ContactUs.html"><i class="bi bi-telephone"></i>Contact us</a>
   <a href="SpecialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
   <a href="add_studio.php"><i class="bi bi-patch-plus-fill"></i>Add Studio</a>
@@ -559,7 +560,7 @@ footer {
                     <td><?= htmlspecialchars($row['username']) ?></td>
                     <td><?= htmlspecialchars($row['role']) ?></td>
                     <td class="actions">
-                        <a href="dashboard.php?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?');">
+                        <a href="Dashboard.php?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?');">
                             <button style="background-color: #e74c3c; color: white; border: none;">Delete</button>
                         </a>
                     </td>
