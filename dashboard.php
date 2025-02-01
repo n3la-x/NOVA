@@ -507,8 +507,7 @@ footer {
   <a href="ContactUs.html"><i class="bi bi-telephone"></i>Contact us</a>
   <a href="SpecialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
   <a href="Dashboard.html">Dashboard</a>
-  <div class="spacer"></div>
-  <a class="logout-btn" href="logout.php"><i class="bi bi-box-arrow-in-left"></i>Logout</a>
+  
 
 </div>
 <!-- -------------------------Pop-up form--------------- -->

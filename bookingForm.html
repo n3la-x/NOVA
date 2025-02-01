@@ -191,7 +191,24 @@ body {
 
 }
 
-.sidebar {
+/*----------------------hr line----------------------------*/
+        h4{
+          display: flex;
+            flex-direction: row;
+            color:#E1ACAC;
+            margin: 100px 0 0px 0;
+            font-family:'Charm';
+        }
+        
+        h4:before,
+        h4:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid #E1ACAC;
+            margin: 20px 5px;
+        }
+ /*-------------------side bar---------------*/
+  .sidebar {
   height: 100%;
   width: 0;
   position: fixed;
@@ -227,20 +244,6 @@ body {
   font-size: 36px;
   margin-left: 30px;
 }
-.sidebar .logout-btn {
-  margin-top: 200%; 
-  background-color: rgb(168, 124, 124); 
-  color: white; 
-  border-radius: 5px; 
-  transition: background-color 0.3s ease; 
-}
-
-.sidebar .logout-btn:hover {
-  background-color: #82828220; 
-}
-
-
-
 
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
@@ -267,6 +270,7 @@ body {
       color: rgb(229, 225, 218);
       box-shadow: 0px 4px 8px rgb(229, 225, 218);
     }
+
   /*---------------------------------------------------F O O T E R-------------------------------------*/
 .footer-container {
   background-color: rgb(168, 124, 124);
@@ -459,8 +463,6 @@ footer {
   <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
   <a href="contactUs.php"><i class="bi bi-telephone"></i>Contact us</a>
   <a href="SpecialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
-  <div class="spacer"></div>
-  <a class="logout-btn" href="logout.php"><i class="bi bi-box-arrow-in-left"></i>Logout</a>
  
   
 
@@ -600,17 +602,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const specificServiceDropdown = document.getElementById("specificService");
   const bookingForm = document.getElementById("bookingForm");
 
-  const options = {
-    nails: ["Rina Zaiti", "Verona K Nails", "Ibc","Cherry Blossom","Ereza's Studio","Serpent Nails","Beautifly Studio","Blerta's Beauty","Drina Nails"],
-    facial: ["Fresh Face Clinic", "Glow Skin Spa", "Revive Facial Center"],
-    hair: ["Elite Hair Salon", "Style Studio", "Chic Hair Lounge"],
-  };
-  serviceDropdown.addEventListener("change", () => {
+
+  async function fetchStudios(serviceType) {
+    const response = await fetch(`get_studios.php?service_type=${serviceType}`);
+    const studios = await response.json();
+    return studios;
+  }
+
+  serviceDropdown.addEventListener("change", async () => {
     const selectedService = serviceDropdown.value;
-    if (options[selectedService]) {
+    if (selectedService) {
       specificOptionsDiv.classList.remove("hidden");
-      specificServiceDropdown.innerHTML = options[selectedService]
-        .map((option) => `<option value="${option}">${option}</option>`)
+      const studios = await fetchStudios(selectedService);
+      specificServiceDropdown.innerHTML = studios
+        .map((studio) => `<option value="${studio.name}">${studio.name}</option>`)
         .join("");
     } else {
       specificOptionsDiv.classList.add("hidden");
@@ -619,7 +624,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   bookingForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
     const formData = new FormData(bookingForm);
     const data = {
       service: formData.get("service"),
@@ -630,18 +634,11 @@ document.addEventListener("DOMContentLoaded", () => {
       date: formData.get("date"),
       time: formData.get("time"),
     };
-
-  
-    alert(
-      `Booking Confirmed!\nService: ${data.service}\nStudio/Clinic/Salon: ${data.specificService}\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nDate: ${data.date}\nTime: ${data.time}`
-    );
-
-
+    alert(`Booking Confirmed!\nService: ${data.service}\nStudio/Clinic/Salon: ${data.specificService}\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nDate: ${data.date}\nTime: ${data.time}`);
     bookingForm.reset();
     specificOptionsDiv.classList.add("hidden");
   });
 });
-
   /*---------------------------------F O O T E R------------------------------------------------*/
   // Modal functionality
 const leaveReviewBtn = document.getElementById('leave-review-btn');
