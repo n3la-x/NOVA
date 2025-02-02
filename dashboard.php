@@ -530,7 +530,6 @@ footer {
   <a href="SpecialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
   <a href="add_studio.php"><i class="bi bi-patch-plus-fill"></i>Add Studio</a>
   <a href="bookings.php"><i class="bi bi-patch-plus-fill"></i>Bookings</a>
-  <a href="contactUs.php"><i class="bi bi-patch-plus-fill"></i>Contact Us Messages</a>
   <div class="spacer"></div>
   <a class="logout-btn" href="logout.php"><i class="bi bi-box-arrow-in-left"></i>Logout</a>
   
