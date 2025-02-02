@@ -555,59 +555,83 @@ footer {
 <!-- Review Form Modal -->
 <div id="review-modal" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Write a Review</h2>
-    <form id="review-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+      <span class="close">&times;</span>
+      <h2>Write a Review</h2>
+      <form id="review-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
 
-      <label for="rating">Rating:</label>
-      <select id="rating" name="rating" required>
-        <option value="5">⭐⭐⭐⭐⭐</option>
-        <option value="4">⭐⭐⭐⭐</option>
-        <option value="3">⭐⭐⭐</option>
-        <option value="2">⭐⭐</option>
-        <option value="1">⭐</option>
-      </select>
+          <label for="rating">Rating:</label>
+          <select id="rating" name="rating" required>
+              <option value="5">⭐⭐⭐⭐⭐</option>
+              <option value="4">⭐⭐⭐⭐</option>
+              <option value="3">⭐⭐⭐</option>
+              <option value="2">⭐⭐</option>
+              <option value="1">⭐</option>
+          </select>
 
-      <label for="review">Your Review:</label>
-      <textarea id="review" name="review" rows="4" required></textarea>
+          <label for="review">Your Review:</label>
+          <textarea id="review" name="review" rows="4" required></textarea>
 
-      <button type="submit" style="font-size: 20px;">Submit</button>
-    </form>
+          <button type="submit">Submit</button>
+      </form>
+      <p id="review-message" style="color: green; display: none;">Thank you for your review!</p>
   </div>
 </div>
+<script>
+  
+const leaveReviewBtn = document.getElementById('leave-review-btn'); // Button in footer
+const modal = document.getElementById('review-modal'); // Modal div
+const closeModal = document.querySelector('.close'); // Close button in modal
+
+// Open modal when "Leave a Review" is clicked
+leaveReviewBtn.addEventListener('click', () => {
+    modal.style.display = 'flex'; 
+});
+
+// Close modal when "X" button is clicked
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none'; 
+});
+
+// Close modal if user clicks outside of it
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+  document.getElementById("review-form").addEventListener("submit", function(event) {
+    event.preventDefault();  // Prevent page refresh
+
+    let formData = new FormData(this);
+
+    fetch("submitReview.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        if (data === "Success") {
+            document.getElementById("review-message").style.display = "block"; // Show success message
+            document.getElementById("review-form").reset(); // Clear form
+
+            setTimeout(() => {
+                modal.style.display = 'none'; // Close modal after 2 seconds
+                document.getElementById("review-message").style.display = "none"; 
+            }, 2000);
+        } else {
+            alert("Error submitting review: " + data);
+        }
+    })
+    .catch(error => console.error("Error:", error));
+});
 
 
+
+</script>
 <script>
   /*---------------------------------F O O T E R------------------------------------------------*/
-  // Modal functionality
-const leaveReviewBtn = document.getElementById('leave-review-btn');
-const modal = document.getElementById('review-modal');
-const closeModal = document.querySelector('.close');
-
-leaveReviewBtn.addEventListener('click', () => {
-  modal.style.display = 'flex';
-});
-
-closeModal.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-window.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
-  }
-});
-
-// Handle review submission
-const reviewForm = document.getElementById('review-form');
-reviewForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert('Thank you for your review!');
-  modal.style.display = 'none';
-  reviewForm.reset();
-});
 
   /*--------------TESTEMONIALS CAROUSEL----------------------*/
   const carousel = document.querySelector('.carousel');
