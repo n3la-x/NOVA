@@ -496,6 +496,7 @@ footer {
   <a href="add_studio.php"><i class="bi bi-patch-plus-fill"></i>Add Studio</a>
   <a href="bookings.php"><i class="bi bi-patch-plus-fill"></i>Bookings</a>
   <a href="contactUs.php"><i class=""></i>Contact Us Messages</a>
+  <a href="viewReview.php"><i class="bi bi-envelope-paper-heart"></i>View Reviews</a>
   <div class="spacer"></div>
   <a class="logout-btn" href="logout.php"><i class="bi bi-box-arrow-in-left"></i>Logout</a>
   
