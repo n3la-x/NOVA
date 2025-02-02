@@ -506,7 +506,7 @@ footer {
   <a href="ContactUs_Form.php"><i class="bi bi-telephone"></i>Contact us</a>
   <a href="SpecialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
   <a href="add_studio.php"><i class="bi bi-patch-plus-fill"></i>Add Studio</a>
-  <a href="bookings.php">><i class="bi bi-patch-plus-fill"></i>Bookings</a>
+  <a href="bookings.php"><i class="bi bi-patch-plus-fill"></i>Bookings</a>
   <a href="contactUs.php"><i class="bi bi-telephone"></i>Contact Us Messages</a>
   <a href="viewReview.php"><i class="bi bi-envelope-paper-heart"></i>View Reviews</a>
 

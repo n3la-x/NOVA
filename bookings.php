@@ -526,6 +526,7 @@ footer {
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!---------------------------------CONTENT------------------------------------------->
+<br>
 <div class="container">
         <h1>Bookings</h1>
 
