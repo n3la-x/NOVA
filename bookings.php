@@ -1,8 +1,6 @@
 <?php
-
 session_start();
-
-if (!isset($_SESSION['bookingform'])) {
+if (!isset($_SESSION['bookings'])) {
     header("Location: bookingform.php");
     exit();
 }
@@ -21,7 +19,7 @@ if (!$conn) {
 // Handle delete user request
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    $sql = "DELETE FROM users WHERE id = ?";
+    $sql = "DELETE FROM bookings WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "i", $id);
     if (mysqli_stmt_execute($stmt)) {
@@ -33,6 +31,10 @@ if (isset($_GET['delete'])) {
 
 $sql = "SELECT * FROM bookingform";
 $result = mysqli_query($conn, $sql);
+
+if (!$result) {
+    die("Query failed: " . mysqli_error($conn));
+}
 ?>
 
 <!DOCTYPE html>
@@ -566,7 +568,7 @@ footer {
                     <td><?= htmlspecialchars($row['date']) ?></td>
                     <td><?= htmlspecialchars($row['time']) ?></td>
                     <td class="actions">
-                        <a href="bookingform.php?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?');">
+                        <a href="bookings.php?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?');">
                             <button style="background-color: #e74c3c; color: white; border: none;">Delete</button>
                         </a>
                     </td>
