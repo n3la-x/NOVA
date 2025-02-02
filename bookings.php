@@ -1,59 +1,38 @@
 <?php
-session_start(); 
-if (!isset($_SESSION['id']) || $_SESSION['role'] !== 'admin') {
-  header("Location: LogIn.php"); // Redirect to login page if not logged in or not admin
-  exit();
+
+session_start();
+
+if (!isset($_SESSION['bookingform'])) {
+    header("Location: bookingform.php");
+    exit();
 }
-// Check if the user is logged in
 
+$host = "localhost";
+$username = "root";
+$password = "";
+$database = "nova";
 
-$host = 'localhost'; // Change if you're using a different host
-$username = 'root'; // Change to your DB username
-$password = ''; // Change to your DB password
-$database = 'nova'; // Change to your DB name
-
-// Create connection
 $conn = mysqli_connect($host, $username, $password, $database);
 
-// Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Handle deletion of user
+// Handle delete user request
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     $sql = "DELETE FROM users WHERE id = ?";
-    
-    // Prepare and bind
-    if ($stmt = mysqli_prepare($conn, $sql)) {
-        mysqli_stmt_bind_param($stmt, "i", $id);
-        
-        // Execute the statement
-        if (mysqli_stmt_execute($stmt)) {
-            echo "<div class='alert alert-success'>User deleted successfully!</div>";
-        } else {
-            echo "<div class='alert alert-danger'>Error deleting user: " . mysqli_error($conn) . "</div>";
-        }
-        
-        // Close the statement
-        mysqli_stmt_close($stmt);
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    if (mysqli_stmt_execute($stmt)) {
+        echo "<div class='alert alert-success'>User deleted successfully!</div>";
     } else {
-        echo "<div class='alert alert-danger'>Error preparing statement: " . mysqli_error($conn) . "</div>";
+        echo "<div class='alert alert-danger'>Error deleting user: " . mysqli_error($conn) . "</div>";
     }
 }
 
-// Fetch all users with prepared statements
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM bookingform";
 $result = mysqli_query($conn, $sql);
-
-// Check if the query was successful
-if (!$result) {
-    die("Query failed: " . mysqli_error($conn));
-}
-
-// Close the database connection
-mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -560,29 +539,34 @@ footer {
 </div>
 <!---------------------------------CONTENT------------------------------------------->
 <div class="container">
-        <h1>User Dashboard</h1>
+        <h1>Bookings</h1>
 
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Full Name</th>
+                    <th>Service</th>
+                    <th>Specific Service</th>
+                    <th>Name</th>
                     <th>Email</th>
-                    <th>Username</th>
-                    <th>Role</th>
-                    <th>Actions</th>
+                    <th>Phone</th>
+                    <th>Date</th>
+                    <th>Time</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($row = mysqli_fetch_assoc($result)): ?>
                 <tr>
                     <td><?= $row['id'] ?></td>
-                    <td><?= htmlspecialchars($row['full_name']) ?></td>
+                    <td><?= htmlspecialchars($row['service']) ?></td>
+                    <td><?= htmlspecialchars($row['specificService']) ?></td>
+                    <td><?= htmlspecialchars($row['name']) ?></td>
                     <td><?= htmlspecialchars($row['email']) ?></td>
-                    <td><?= htmlspecialchars($row['username']) ?></td>
-                    <td><?= htmlspecialchars($row['role']) ?></td>
+                    <td><?= htmlspecialchars($row['phone']) ?></td>
+                    <td><?= htmlspecialchars($row['date']) ?></td>
+                    <td><?= htmlspecialchars($row['time']) ?></td>
                     <td class="actions">
-                        <a href="dashboard.php?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?');">
+                        <a href="bookingform.php?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?');">
                             <button style="background-color: #e74c3c; color: white; border: none;">Delete</button>
                         </a>
                     </td>

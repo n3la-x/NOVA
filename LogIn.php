@@ -1,6 +1,7 @@
 <?php
-require_once 'N/database.php';
+require_once 'N/database.php'; // Assuming your database connection is in this file
 
+// Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -11,6 +12,7 @@ if (isset($_POST["submit"])) {
 
     $errors = array();
 
+    // Check if fields are empty
     if (empty($emailOrUsername) || empty($password)) {
         array_push($errors, "Both fields are required");
     }
@@ -28,22 +30,25 @@ if (isset($_POST["submit"])) {
     } else {
         // Fetch user data
         $users = mysqli_fetch_assoc($result);
+        
         // Verify password
         if (!password_verify($password, $users["password"])) {
             array_push($errors, "Incorrect password");
         } else {
             // Successful login, start session and redirect
             session_start();
+            session_regenerate_id(true);  // Regenerate session ID to prevent session fixation
             $_SESSION['id'] = $users['id'];
             $_SESSION['username'] = $users['username'];
-            $_SESSION['role'] = $users['role'];
+            $_SESSION['role'] = $users['role']; // Ensure 'role' is set correctly
 
-            if ($users['role'] === "admin") {
-                header("Location: dashboard.php");
-                exit();
-            } elseif ($users['role'] === "user") {
+            // Check role and redirect accordingly
+            if (trim($users['role']) === "admin") {
+                header("Location: dashboard.php"); // Redirect to dashboard if admin
+                exit(); // Stop further execution
+            } elseif (trim($users['role']) === "user") {
                 header("Location: Nova.html");
-                exit();
+                exit(); // Stop further execution
             }
         }
     }
@@ -56,6 +61,9 @@ if (isset($_POST["submit"])) {
     }
 }
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -144,7 +152,7 @@ if (isset($_POST["submit"])) {
 <body>
     <div class="loginPart">
         <h1>Login</h1>
-        <form action="" method="post">
+        <form action="" method="POST">
             <input type="text" placeholder="Enter email or username" id="email_or_username" name="email_or_username" required>
             <input type="password" placeholder="Enter password" id="password" name="password" minlength="8" required>
             <input type="submit" value="Login" id="loginBtn" name="submit">
