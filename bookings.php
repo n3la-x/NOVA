@@ -284,11 +284,54 @@ body {
       box-shadow: 0px 4px 8px rgb(229, 225, 218);
     }
     /*---------------------------------------Content------------------------- */
-   
 
+
+h1 {
+text-align: center;
+color:rgb(168, 124, 124);
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 10px 0;
+}
+
+
+
+td {
+border: 1px solid #ddd;
+padding: 10px;
+font-size: 14px;
+}
+
+tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+tr:hover {
+background-color: #f0c7d3;
+}
+
+p {
+text-align: center;
+color:rgb(168, 124, 124);
+font-size: 16px;
+}
         .container {
             max-width: 800px;
             margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+         border-radius: 10px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+
+
+
+
         }
 
         table {
@@ -304,7 +347,8 @@ body {
         }
 
         table th {
-            background-color: #f4f4f4;
+            background-color: rgb(233, 188, 188);
+            color: white;
         }
 
         .actions button {
@@ -526,6 +570,7 @@ footer {
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!---------------------------------CONTENT------------------------------------------->
+<br>
 <div class="container">
         <h1>Bookings</h1>
 
@@ -553,11 +598,7 @@ footer {
                     <td><?= htmlspecialchars($row['phone']) ?></td>
                     <td><?= htmlspecialchars($row['date']) ?></td>
                     <td><?= htmlspecialchars($row['time']) ?></td>
-                    <td class="actions">
-                        <a href="bookings.php?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?');">
-                            <button style="background-color: #e74c3c; color: white; border: none;">Delete</button>
-                        </a>
-                    </td>
+                  
                 </tr>
                 <?php endwhile; ?>
             </tbody>
