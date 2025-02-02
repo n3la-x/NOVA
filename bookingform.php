@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Basic validation
     if (empty($service) || empty($name) || empty($email) || empty($phone) || empty($date) || empty($time)) {
-        echo "All fields are required!";
+        echo "";
     } else {
         // Database connection (Update with your credentials)
         $servername = "localhost";
