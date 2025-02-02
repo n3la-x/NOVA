@@ -186,6 +186,7 @@ if (isset($_POST["submit"])) {
                 <option value="admin">Admin</option>
                 <option value="user">User</option>
             </select>
+            <a href="LogIn.php" style="color: rgb(202, 135, 135">Already have an account?</a>
 
             <input type="submit" value="Sign Up" id="signUp" name="submit">
         </form>

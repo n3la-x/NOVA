@@ -490,7 +490,7 @@ footer {
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
   <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
-  <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+  <a href="Signup.php"><i class="bi bi-box-arrow-in-right"></i> Sign up</a>
   <a href="ContactUs-Form.php"><i class="bi bi-telephone"></i>Contact us</a>
   <a href="SpecialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
   <a href="add_studio.php"><i class="bi bi-patch-plus-fill"></i>Add Studio</a>

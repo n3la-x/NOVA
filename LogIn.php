@@ -154,6 +154,7 @@ if (isset($_POST["submit"])) {
             <input type="text" placeholder="Enter email or username" id="email_or_username" name="email_or_username" required>
             <input type="password" placeholder="Enter password" id="password" name="password" minlength="8" required>
             <input type="submit" value="Login" id="loginBtn" name="submit">
+            <a href="Signin.php" style="color: rgb(202, 135, 135">Dont have a account?</a>
         </form>
     </div>
 </body>
