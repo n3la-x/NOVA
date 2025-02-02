@@ -516,7 +516,7 @@ footer {
       <h2 style=" font-family: cursive;">Book wellnes services !</h2>
     </div>
     <div class="navbar-right">
-      <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+      <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
       <a href="#"><i class="bi bi-cloud-arrow-down-fill"></i> Download the app</a>
       <a href="#" onclick="openPopup()"><i class="bi bi-globe" ></i> Select Language</a>
     </div>

@@ -1,9 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION['bookings'])) {
-    header("Location: bookingform.php");
-    exit();
-}
 
 $host = "localhost";
 $username = "root";
@@ -11,22 +7,11 @@ $password = "";
 $database = "nova";
 
 $conn = mysqli_connect($host, $username, $password, $database);
+$sql = "SELECT id, service , specificService ,name ,email , phone, date, time  FROM bookingform ORDER BY id DESC";
+$result = $conn->query($sql);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
-}
-
-// Handle delete user request
-if (isset($_GET['delete'])) {
-    $id = $_GET['delete'];
-    $sql = "DELETE FROM bookings WHERE id = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "i", $id);
-    if (mysqli_stmt_execute($stmt)) {
-        echo "<div class='alert alert-success'>User deleted successfully!</div>";
-    } else {
-        echo "<div class='alert alert-danger'>Error deleting user: " . mysqli_error($conn) . "</div>";
-    }
 }
 
 $sql = "SELECT * FROM bookingform";
@@ -48,7 +33,6 @@ if (!$result) {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
@@ -557,7 +541,7 @@ footer {
                 </tr>
             </thead>
             <tbody>
-                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+            <?php while ($row = mysqli_fetch_assoc($result)): ?>
                 <tr>
                     <td><?= $row['id'] ?></td>
                     <td><?= htmlspecialchars($row['service']) ?></td>
