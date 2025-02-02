@@ -347,8 +347,8 @@ font-size: 16px;
         }
 
         table th {
-            background-color: #f4f4f4;
-            color: rgb(168, 124, 124);
+            background-color: rgb(233, 188, 188);
+            color: white;
         }
 
         .actions button {
