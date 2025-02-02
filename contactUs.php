@@ -492,7 +492,7 @@ footer {
       <h2 style="  font-family: 'Tangerine', serif; font-size: 40px;">Book wellnes services !</h2>
     </div>
     <div class="navbar-right">
-      <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+      <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
       <a href="#"><i class="bi bi-cloud-arrow-down-fill"></i> Download the app</a>
       <a href="#" onclick="openPopup()"><i class="bi bi-globe" ></i> Select Language</a>
     </div>
@@ -503,8 +503,12 @@ footer {
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-circle"></i></a>
   <a href="aboutus.html"><i class="bi bi-person-lines-fill"></i>About us</a>
   <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
-  <a href="contactUs.php"><i class="bi bi-telephone"></i>Contact us</a>
+  <a href="ContactUs_Form.php"><i class="bi bi-telephone"></i>Contact us</a>
   <a href="SpecialOffers.html"><i class="bi bi-stars"></i>Special offers</a>
+  <a href="add_studio.php"><i class="bi bi-patch-plus-fill"></i>Add Studio</a>
+  <a href="bookings.php">Bookings</a>
+  <a href="contactUs.php">Contact Us Messages</a>
+
   <div class="spacer"></div>
   <a class="logout-btn" href="logout.php"><i class="bi bi-box-arrow-in-left"></i>Logout</a>
  
