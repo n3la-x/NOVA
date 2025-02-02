@@ -1,3 +1,69 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize input data
+    $service = isset($_POST['service']) ? htmlspecialchars($_POST['service']) : '';
+    $specificService = isset($_POST['specificService']) ? htmlspecialchars($_POST['specificService']) : '';
+    $name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
+    $email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '';
+    $phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : '';
+    $date = isset($_POST['date']) ? htmlspecialchars($_POST['date']) : '';
+    $time = isset($_POST['time']) ? htmlspecialchars($_POST['time']) : '';
+
+    // Basic validation
+    if (empty($service) || empty($name) || empty($email) || empty($phone) || empty($date) || empty($time)) {
+        echo "All fields are required!";
+    } else {
+        // Database connection (Update with your credentials)
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "nova"; // Your database name
+
+        // Create a connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check the connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Debug: Check values before inserting
+        echo "Service: $service, Specific Service: $specificService, Name: $name, Email: $email, Phone: $phone, Date: $date, Time: $time";
+
+        // Prepare the SQL query to insert data (id is auto-generated, so no need to pass it)
+        $query = "INSERT INTO bookingform (service, specificService, name, email, phone, date, time) 
+                  VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        // Prepare the statement
+        $stmt = $conn->prepare($query);
+
+        // Check if statement preparation was successful
+        if ($stmt === false) {
+            die("Error preparing statement: " . $conn->error);
+        }
+
+        // Bind the parameters (this ensures data is passed correctly)
+        $stmt->bind_param("sssssss", $service, $specificService, $name, $email, $phone, $date, $time);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            echo "Booking successfully created!";
+        } else {
+            echo "Error in booking submission: " . $stmt->error;
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    }
+}
+?>
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -495,7 +561,8 @@ footer {
 <div class="booking-container">
 <div class="booking-form">
     <h2 style=" font-family: 'Tangerine'; font-size: 40px;">Book wellnes services !</h2>
-    <form id="bookingForm">
+    <form id="bookingform"  method="POST" >
+    
       <!-- ---------Select Service----- -->
       <label for="service">Choose a Service:</label>
       <select id="service" name="service" required>
@@ -509,6 +576,9 @@ footer {
       <div id="specificOptions" class="hidden">
         <label for="specificService">Choose a Studio/Clinic/Salon:</label>
         <select id="specificService" name="specificService" required>
+        <option value="nails">Nails</option>
+        <option value="facial">Facial Treatment</option>
+        <option value="hair">Hair Salon</option>
           <!-- Options will be dynamically loaded -->
         </select>
       </div>

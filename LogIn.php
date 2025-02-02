@@ -39,7 +39,7 @@ if (isset($_POST["submit"])) {
             $_SESSION['role'] = $users['role'];
 
             if ($users['role'] === "admin") {
-                header("Location: ../dashboard.php");
+                header("Location: dashboard.php");
                 exit();
             } elseif ($users['role'] === "user") {
                 header("Location: Nova.html");
