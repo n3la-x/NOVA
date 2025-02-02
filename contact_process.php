@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $conn->real_escape_string($_POST['email']);
     $message = $conn->real_escape_string($_POST['message']);
 
-    $sql = "INSERT INTO contact_us (name, email, message) VALUES ('$name', '$email', '$message')";
+    $sql = "INSERT INTO contactus (name, email, message) VALUES ('$name', '$email', '$message')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Message sent successfully!";
