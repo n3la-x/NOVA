@@ -1,65 +1,56 @@
 <?php
-require_once 'N/database.php'; // Assuming your database connection is in this file
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+// Step 1: Database connection
+$servername = "localhost";  // Change this if needed
+$username = "root";         // Change this if needed
+$password = "";             // Change this if needed
+$dbname = "nova";  // Replace with your actual database name
+
+// Create a connection to the database
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check if the connection was successful
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-if (isset($_POST["submit"])) {
-    $emailOrUsername = $_POST["email_or_username"];
-    $password = $_POST["password"];
+// Step 2: Process the form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if form data is set
+    if (isset($_POST['emri']) && isset($_POST['email']) && isset($_POST['mesazhi'])) {
+        // Sanitize and validate form inputs
+        $emri = mysqli_real_escape_string($conn, $_POST['emri']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $mesazhi = mysqli_real_escape_string($conn, $_POST['mesazhi']);
 
-    $errors = array();
-
-    // Check if fields are empty
-    if (empty($emailOrUsername) || empty($password)) {
-        array_push($errors, "Both fields are required");
-    }
-
-    // Check if the email or username exists
-    $sql = "SELECT * FROM users WHERE email = ? OR username = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $emailOrUsername, $emailOrUsername);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    $rowCount = mysqli_num_rows($result);
-
-    if ($rowCount == 0) {
-        array_push($errors, "No user found with that email or username");
-    } else {
-        // Fetch user data
-        $users = mysqli_fetch_assoc($result);
-        
-        // Verify password
-        if (!password_verify($password, $users["password"])) {
-            array_push($errors, "Incorrect password");
+        // Validate the email format
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo "Invalid email format";
+        } elseif (empty($emri) || empty($email) || empty($mesazhi)) {
+            echo "All fields are required.";
         } else {
-            // Successful login, start session and redirect
-            session_start();
-            session_regenerate_id(true);  // Regenerate session ID to prevent session fixation
-            $_SESSION['id'] = $users['id'];
-            $_SESSION['username'] = $users['username'];
-            $_SESSION['role'] = $users['role']; // Ensure 'role' is set correctly
+            // Step 3: Use prepared statement to insert form data into the database
+            $stmt = $conn->prepare("INSERT INTO contactus (emri, email, mesazhi) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $emri, $email, $mesazhi);
 
-            // Check role and redirect accordingly
-            if (trim($users['role']) === "admin") {
-                header("Location: dashboard.php"); // Redirect to dashboard if admin
-                exit(); // Stop further execution
-            } elseif (trim($users['role']) === "user") {
-                header("Location: Nova.html");
-                exit(); // Stop further execution
+            // Execute the statement
+            if ($stmt->execute()) {
+                echo "Your message has been sent successfully!";
+            } else {
+                echo "Error: " . $stmt->error;
             }
-        }
-    }
 
-    // Display errors if any
-    if (count($errors) > 0) {
-        foreach ($errors as $error) {
-            echo "<div class='alert alert-danger'>$error</div>";
+            // Close the statement
+            $stmt->close();
         }
     }
 }
+
+// Step 4: Close the database connection
+$conn->close();
 ?>
 
 
