@@ -503,7 +503,6 @@ footer {
   font-style: italic;
 }
 .spacer {
-  flex-grow: 5; /* Takes up remaining space */
 }
 
     </style>
@@ -512,7 +511,7 @@ footer {
 <div class="top-container">
   <div class="navbar">
     <div class="navbar-left">
-      <h2 style="  font-family: 'Tangerine', serif; font-size: 40px;">Book wellnes services !</h2>
+      <h2 style="font-family: 'Tangerine', serif; font-size: 40px;">Book wellnes services !</h2>
     </div>
     <div class="navbar-right">
       <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
@@ -557,7 +556,7 @@ footer {
   </div>
 </div>
 <div class="header" id="myHeader">
-    <h2 style="margin-left: 20px;">Nova</h2>
+<h2 ><a href="Nova.html" style="color:white;">Nova</a></h2>
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!---------------------------------CONTENT------------------------------------------->
@@ -587,6 +586,7 @@ footer {
                         <a href="dashboard.php?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?');">
                             <button style="background-color: #e74c3c; color: white; border: none;">Delete</button>
                         </a>
+                        <a href="edit_user.php?id=<?= $row['id'] ?>" class="edit-btn">Edit</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

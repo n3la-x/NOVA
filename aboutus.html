@@ -723,53 +723,17 @@ font-family: 'Roboto Flex';
 </div>
 
 <script>
-const leaveReviewBtn = document.getElementById('leave-review-btn'); // Button in footer
-const modal = document.getElementById('review-modal'); // Modal div
-const closeModal = document.querySelector('.close'); // Close button in modal
 
-// Open modal when "Leave a Review" is clicked
-leaveReviewBtn.addEventListener('click', () => {
-    modal.style.display = 'flex'; 
-});
-
-// Close modal when "X" button is clicked
-closeModal.addEventListener('click', () => {
-    modal.style.display = 'none'; 
-});
-
-// Close modal if user clicks outside of it
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-    }
-});
-
-  document.getElementById("review-form").addEventListener("submit", function(event) {
-    event.preventDefault();  // Prevent page refresh
-
-    let formData = new FormData(this);
-
-    fetch("submitReview.php", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        if (data === "Success") {
-            document.getElementById("review-message").style.display = "block"; // Show success message
-            document.getElementById("review-form").reset(); // Clear form
-
-            setTimeout(() => {
-                modal.style.display = 'none'; // Close modal after 2 seconds
-                document.getElementById("review-message").style.display = "none"; 
-            }, 2000);
-        } else {
-            alert("Error submitting review: " + data);
-        }
-    })
-    .catch(error => console.error("Error:", error));
-});
-
+  
+  const leaveReviewBtn = document.getElementById('leave-review-btn'); // Button in footer
+  const modal = document.getElementById('review-modal'); // Modal div
+  const closeModal = document.querySelector('.close'); // Close button in modal
+  
+  // Open modal when "Leave a Review" is clicked
+  leaveReviewBtn.addEventListener('click', () => {
+      modal.style.display = 'flex'; 
+  });
+  
 
 
   // .....................................C O N T E N T.............................................

@@ -452,7 +452,7 @@ footer {
       <h2 style="  font-family: 'Tangerine', serif; font-size: 40px;">Book wellnes services !</h2>
     </div>
     <div class="navbar-right">
-      <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+      <a href="LogIn.php"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
       <a href="#"><i class="bi bi-cloud-arrow-down-fill"></i> Download the app</a>
       <a href="#" onclick="openPopup()"><i class="bi bi-globe" ></i> Select Language</a>
     </div>
@@ -497,7 +497,7 @@ footer {
   </div>
 </div>
 <div class="header" id="myHeader">
-    <h2 style="margin-left: 20px;">Nova</h2>
+<h2 ><a href="Nova.html" style="color:white;">Nova</a></h2>
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!---------------------------------CONTENT------------------------------------------->

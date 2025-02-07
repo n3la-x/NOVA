@@ -3,7 +3,7 @@ session_start();
 
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: Signin.php");
+    header("Location: Signup.php");
     exit();
 }
 

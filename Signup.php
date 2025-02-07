@@ -1,5 +1,4 @@
 <?php
-
 require_once 'N/database.php';
 
 if (!$conn) {
@@ -27,10 +26,9 @@ if (isset($_POST["submit"])) {
         array_push($errors, "Password must be at least 8 characters long");
     }
     if ($password !== $confirm_password) {
-        array_push($errors, "Password does not match");
+        array_push($errors, "Passwords do not match");
     }
 
-    // a ekziston email
     $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $email);
@@ -42,7 +40,19 @@ if (isset($_POST["submit"])) {
         array_push($errors, "Email already exists!");
     }
 
-    // shtini te dhanat nese ska errore
+    // e kqyr sa admina jon
+    if ($role === "admin") {
+        $sql = "SELECT COUNT(*) AS admin_count FROM users WHERE role = 'admin'";
+        $result = mysqli_query($conn, $sql);
+        $adminRow = mysqli_fetch_assoc($result);
+        $adminCount = $adminRow["admin_count"];
+
+        if ($adminCount >= 2) {
+            array_push($errors, "Only two admins are allowed.");
+        }
+    }
+
+    // i shtin userat ne databaz nese ska errora
     if (count($errors) > 0) {
         foreach ($errors as $error) {
             echo "<div class='alert alert-danger'>$error</div>";
@@ -53,12 +63,11 @@ if (isset($_POST["submit"])) {
         mysqli_stmt_bind_param($stmt, "sssss", $fullName, $email, $username, $passwordHash, $role);
 
         if (mysqli_stmt_execute($stmt)) {
-            // drejtimi ne faqe sipas rolev
             if ($role === "admin") {
-                header("Location:   dashboard.php"); 
+                header("Location: dashboard.php");
                 exit();
             } elseif ($role === "user") {
-                header("Location: Nova.html"); 
+                header("Location: Nova.html");
                 exit();
             }
         } else {

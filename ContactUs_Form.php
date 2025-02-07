@@ -1,59 +1,49 @@
 <?php
-// Enable error reporting for debugging
-//error_reporting(E_ALL);
-//ini_set('display_errors', 1);
 
-// Step 1: Database connection
-$servername = "localhost";  // Change this if needed
-$username = "root";         // Change this if needed
-$password = "";             // Change this if needed
-$dbname = "nova";  // Replace with your actual database name
+$servername = "localhost"; 
+$username = "root";         
+$password = "";             
+$dbname = "nova"; 
 
-// Create a connection to the database
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check if the connection was successful
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Step 2: Process the form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if form data is set
+
     if (isset($_POST['emri']) && isset($_POST['email']) && isset($_POST['mesazhi'])) {
-        // Sanitize and validate form inputs
+       
         $emri = mysqli_real_escape_string($conn, $_POST['emri']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $mesazhi = mysqli_real_escape_string($conn, $_POST['mesazhi']);
 
-        // Validate the email format
+   
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo "Invalid email format";
         } elseif (empty($emri) || empty($email) || empty($mesazhi)) {
             echo "All fields are required.";
         } else {
-            // Step 3: Use prepared statement to insert form data into the database
+           
          
             $stmt = $conn->prepare("INSERT INTO contactus (emri, email, mesazhi) VALUES (?, ?, ?)");
             $stmt->bind_param("sss", $emri, $email, $mesazhi);
 
-            // Execute the statement
             if ($stmt->execute()) {
               echo "Your message has been sent successfully!";
           } else {
-              echo "Error: " . $stmt->error; // This will display the error if the query fails
+              echo "Error: " . $stmt->error; 
           }
           $stmt = $conn->prepare("INSERT INTO contactus (emri, email, mesazhi) VALUES (?, ?, ?)");
                $stmt->bind_param("sss", $emri, $email, $mesazhi);
 
-          
-            // Close the statement
+       
             $stmt->close();
         }
     }
 }
-
-// Step 4: Close the database connection
 $conn->close();
 ?>
 
@@ -945,3 +935,4 @@ footer {
     
 </body>
 </html>
+

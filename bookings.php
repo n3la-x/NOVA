@@ -10,6 +10,28 @@ $conn = mysqli_connect($host, $username, $password, $database);
 $sql = "SELECT id, service , specificService ,name ,email , phone, date, time  FROM bookingform ORDER BY id DESC";
 $result = $conn->query($sql);
 
+if (isset($_GET['delete'])) {
+  $id = $_GET['delete'];
+  $sql = "DELETE FROM bookingform WHERE id = ?";
+  
+  // Prepare and bind
+  if ($stmt = mysqli_prepare($conn, $sql)) {
+      mysqli_stmt_bind_param($stmt, "i", $id);
+      
+      // Execute the statement
+      if (mysqli_stmt_execute($stmt)) {
+          echo "<div class='alert alert-success'>Booking deleted successfully!</div>";
+      } else {
+          echo "<div class='alert alert-danger'>Error deleting booking: " . mysqli_error($conn) . "</div>";
+      }
+      
+      // Close the statement
+      mysqli_stmt_close($stmt);
+  } else {
+      echo "<div class='alert alert-danger'>Error preparing statement: " . mysqli_error($conn) . "</div>";
+  }
+}
+
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -19,7 +41,9 @@ $result = mysqli_query($conn, $sql);
 
 if (!$result) {
     die("Query failed: " . mysqli_error($conn));
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -321,7 +345,7 @@ color:rgb(168, 124, 124);
 font-size: 16px;
 }
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             background: #fff;
             padding: 20px;
@@ -566,7 +590,7 @@ footer {
   </div>
 </div>
 <div class="header" id="myHeader">
-    <h2 style="margin-left: 20px;">Nova</h2>
+ <h2 ><a href="Nova.html" style="color:white;">Nova</a></h2>
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!---------------------------------CONTENT------------------------------------------->
@@ -585,6 +609,7 @@ footer {
                     <th>Phone</th>
                     <th>Date</th>
                     <th>Time</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -598,7 +623,10 @@ footer {
                     <td><?= htmlspecialchars($row['phone']) ?></td>
                     <td><?= htmlspecialchars($row['date']) ?></td>
                     <td><?= htmlspecialchars($row['time']) ?></td>
-                  
+                    <td class="actions">
+                    <a href="edit_bookings.php?id=<?= $row['id'] ?>" class="edit-btn">Edit</a>
+                        <a href="bookings.php?delete=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this booking?');">
+                            <button style="background-color: #e74c3c; color: white; border: none;">Delete</button>
                 </tr>
                 <?php endwhile; ?>
             </tbody>
@@ -798,3 +826,4 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+

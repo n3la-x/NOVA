@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize input data
+  
     $service = isset($_POST['service']) ? htmlspecialchars($_POST['service']) : '';
     $specificService = isset($_POST['specificService']) ? htmlspecialchars($_POST['specificService']) : '';
     $name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
@@ -9,56 +9,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = isset($_POST['date']) ? htmlspecialchars($_POST['date']) : '';
     $time = isset($_POST['time']) ? htmlspecialchars($_POST['time']) : '';
 
-    // Basic validation
+
     if (empty($service) || empty($name) || empty($email) || empty($phone) || empty($date) || empty($time)) {
-        echo "";
+        echo "All fields are required!";
     } else {
-        // Database connection (Update with your credentials)
+      
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "nova"; // Your database name
+        $dbname = "nova"; 
 
-        // Create a connection
         $conn = new mysqli($servername, $username, $password, $dbname);
 
-        // Check the connection
+      
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Debug: Check values before inserting
         echo "Service: $service, Specific Service: $specificService, Name: $name, Email: $email, Phone: $phone, Date: $date, Time: $time";
 
-        // Prepare the SQL query to insert data (id is auto-generated, so no need to pass it)
         $query = "INSERT INTO bookingform (service, specificService, name, email, phone, date, time) 
                   VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        // Prepare the statement
         $stmt = $conn->prepare($query);
 
-        // Check if statement preparation was successful
+   
         if ($stmt === false) {
             die("Error preparing statement: " . $conn->error);
         }
 
-        // Bind the parameters (this ensures data is passed correctly)
+      
         $stmt->bind_param("sssssss", $service, $specificService, $name, $email, $phone, $date, $time);
 
-        // Execute the statement
         if ($stmt->execute()) {
             echo "Booking successfully created!";
         } else {
             echo "Error in booking submission: " . $stmt->error;
         }
 
-        // Close the statement and connection
+  
         $stmt->close();
         $conn->close();
     }
 }
 ?>
-
 
 
 
@@ -555,7 +549,7 @@ footer {
   </div>
 </div>
 <div class="header" id="myHeader">
-    <h2><a href="Nova.html">Nova</a></h2>
+<h2 ><a href="Nova.html" style="color:white;">Nova</a></h2>
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!--........................CONTENT BOOKING..........................-->
@@ -671,7 +665,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const serviceDropdown = document.getElementById("service");
   const specificOptionsDiv = document.getElementById("specificOptions");
   const specificServiceDropdown = document.getElementById("specificService");
-  const bookingForm = document.getElementById("bookingForm");
+  const bookingForm = document.getElementById("bookingform");
 
 
   async function fetchStudios(serviceType) {
@@ -693,22 +687,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  bookingForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(bookingForm);
-    const data = {
-      service: formData.get("service"),
-      specificService: formData.get("specificService"),
-      name: formData.get("name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      date: formData.get("date"),
-      time: formData.get("time"),
-    };
-    alert(`Booking Confirmed!\nService: ${data.service}\nStudio/Clinic/Salon: ${data.specificService}\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nDate: ${data.date}\nTime: ${data.time}`);
-    bookingForm.reset();
-    specificOptionsDiv.classList.add("hidden");
-  });
+  
 });
   /*---------------------------------F O O T E R------------------------------------------------*/
   // Modal functionality

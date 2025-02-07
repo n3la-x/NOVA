@@ -523,7 +523,7 @@ footer {
   </div>
 </div>
 <div class="header" id="myHeader">
-    <h1 style="margin-left: 20px;">Nova</h1>
+<h2 ><a href="Nova.html" style="color:white;">Nova</a></h2>
     <button class="openbtn" onclick="openNav()"><i class="bi bi-list"></i></button>
 </div>
 <!---------------------------------CONTENT------------------------------------------->

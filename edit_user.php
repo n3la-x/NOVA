@@ -1,48 +1,53 @@
 <?php
+require_once 'N/database.php';
 session_start();
 
-// Restrict access to admins only
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: Signin.php");
-    exit();
+// Check if user ID is provided
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    die("User ID is missing.");
 }
 
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "nova";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+$id = $_GET['id'];
 
 // Fetch user data
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $sql = "SELECT * FROM users WHERE id = $id";
-    $result = $conn->query($sql);
-    $user = $result->fetch_assoc();
+$sql = "SELECT full_name, email, role FROM users WHERE id = ?";
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$user = mysqli_fetch_assoc($result);
+
+if (!$user) {
+    die("User not found.");
 }
 
 // Handle form submission
-if (isset($_POST['update'])) {
-    $id = $_POST['id'];
-    $fullName = $_POST['fullname'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $full_name = $_POST['full_name'];
     $email = $_POST['email'];
-    $username = $_POST['username'];
     $role = $_POST['role'];
 
-    $sql = "UPDATE users SET full_name = '$fullName', email = '$email', username = '$username', role = '$role' WHERE id = $id";
-    if ($conn->query($sql) === TRUE) {
-        header("Location: admin_dashboard.php");
-        exit();
+    // Input validation (simple example, can be extended)
+    if (empty($full_name) || empty($email) || !in_array($role, ['user', 'admin'])) {
+        echo "Please fill out all fields correctly.";
     } else {
-        echo "Error updating record: " . $conn->error;
+        // Update SQL query
+        $update_sql = "UPDATE users SET full_name = ?, email = ?, role = ? WHERE id = ?";
+        $update_stmt = mysqli_prepare($conn, $update_sql);
+        mysqli_stmt_bind_param($update_stmt, "sssi", $full_name, $email, $role, $id);
+
+        if (mysqli_stmt_execute($update_stmt)) {
+            header("Location: dashboard.php?message=User updated successfully");
+            exit();
+        } else {
+            echo "Error updating user: An unexpected error occurred. Please try again.";
+        }
+
+        mysqli_stmt_close($update_stmt);
     }
 }
+
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -51,34 +56,97 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit User</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e5e1dab7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color:rgb(219, 181, 181);
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color:rgb(219, 181, 181);
+        }
+
+        input, select, button {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background:rgb(219, 181, 181);
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #5e1c38;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            color:rgb(219, 181, 181);
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container">
         <h1>Edit User</h1>
-        <form method="POST">
-            <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
-            <div class="mb-3">
-                <label for="fullname" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo $user['full_name']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" value="<?php echo $user['email']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" value="<?php echo $user['username']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="role" class="form-label">Role</label>
-                <select class="form-select" id="role" name="role" required>
-                    <option value="admin" <?php echo ($user['role'] === 'admin') ? 'selected' : ''; ?>>Admin</option>
-                    <option value="user" <?php echo ($user['role'] === 'user') ? 'selected' : ''; ?>>User</option>
-                </select>
-            </div>
-            <button type="submit" name="update" class="btn btn-primary">Update</button>
+        <form action="" method="POST">
+            <label for="full_name">Full Name:</label>
+            <input type="text" name="full_name" id="full_name" value="<?php echo htmlspecialchars($user['full_name']); ?>" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
+
+            <label for="role">Role:</label>
+            <select name="role" id="role">
+                <option value="user" <?php echo ($user['role'] == 'user') ? 'selected' : ''; ?>>User</option>
+                <option value="admin" <?php echo ($user['role'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
+            </select>
+
+            <button type="submit">Update User</button>
         </form>
+        <a href="dashboard.php">Back to Users</a>
     </div>
 </body>
 </html>
